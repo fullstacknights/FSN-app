@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "remotedev": "remotedev --hostname=localhost --port=8000"
   },
   "dependencies": {
     "react": "^0.14.8",
@@ -13,5 +14,9 @@
     "redux-persist": "^2.0.1",
     "redux-thunk": "^2.0.1",
     "shallowequal": "^0.2.2"
+  },
+  "devDependencies": {
+    "remote-redux-devtools": "^0.1.9",
+    "remotedev-server": "0.0.7"
   }
 }
