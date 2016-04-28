@@ -4,7 +4,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "736h",
-      "filename" : "SplashScreen-Retina 5.5.png",
+      "filename" : "Default-1242@3x~iphone6s-portrait_1242x2208.png",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "3x"
@@ -13,7 +13,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "667h",
-      "filename" : "SplashScreen-Retina 4.7.png",
+      "filename" : "Default-750@2x~iphone6-portrait_750x1334.png",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -21,7 +21,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "SplashScreen-2x-1.png",
+      "filename" : "Default@2x~iphone_640x960-1.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -30,7 +30,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "retina4",
-      "filename" : "SplashScreen-Retina 4.png",
+      "filename" : "Default-568h@2x~iphone_640x1136.png",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -38,21 +38,21 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "SplashScreen-1x.png",
+      "filename" : "Default~iphone.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "SplashScreen-2x.png",
+      "filename" : "Default@2x~iphone_640x960.png",
       "extent" : "full-screen",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "SplashScreen-Retina 4-1.png",
+      "filename" : "Default-568h@2x~iphone_640x1136-1.png",
       "extent" : "full-screen",
       "subtype" : "retina4",
       "scale" : "2x"
