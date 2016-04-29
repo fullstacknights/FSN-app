@@ -1,13 +1,8 @@
 import * as types from './actionTypes';
 
-export function increment() {
+export function transitionTo(name) {
   return {
-    type: types.INCREMENT
-  };
-}
-
-export function decrement() {
-  return {
-    type: types.DECREMENT
+    type: types.TRANSITION_TO,
+    name
   };
 }

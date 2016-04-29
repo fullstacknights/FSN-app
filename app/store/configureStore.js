@@ -8,7 +8,7 @@ import * as reducers from '../reducers';
 
 const devToolsConfig = {
   hostname: 'localhost',
-  port: 9000
+  port: 8000
 };
 
 const isDebuggingInChrome = __DEV__ && !!window.navigator.userAgent;

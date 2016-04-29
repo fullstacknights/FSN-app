@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "remotedev": "remotedev --hostname=localhost --port=9000"
+    "remotedev": "remotedev --hostname=localhost --port=8000"
   },
   "dependencies": {
     "react": "^0.14.8",

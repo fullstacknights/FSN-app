@@ -11,6 +11,16 @@ import banner from '../../assets/banner.png';
 import logo from '../../assets/logo.png';
 
 class Menu extends Component {
+  constructor(props) {
+    super(props);
+    this.handlePress = this.handlePress.bind(this);
+  }
+  handlePress(route) {
+    return () => {
+      this.props.toggleLeftDrawer();
+      this.props.transitionTo(route);
+    };
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -32,25 +42,25 @@ class Menu extends Component {
         </View>
         <View style={styles.navAndTickets}>
           <View style={styles.nav}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.handlePress('home')}>
               <Text style={styles.navLink}>Home</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.handlePress('schedule')}>
               <Text style={styles.navLink}>Schedule</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.handlePress('venue')}>
               <Text style={styles.navLink}>Venue</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.handlePress('past-events')}>
               <Text style={styles.navLink}>Past Events</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.handlePress('information')}>
               <Text style={styles.navLink}>Information</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.handlePress('submit-talk')}>
               <Text style={styles.navLink}>Submit Talk</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.handlePress('open-mic')}>
               <Text style={styles.navLink}>Request Open Mic</Text>
             </TouchableOpacity>
           </View>

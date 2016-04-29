@@ -5,14 +5,14 @@ import React, {
 } from 'react-native';
 import { PureRender } from '../components';
 
-class Home extends Component {
+class SubmitTalk extends Component {
   render() {
     return (
       <View>
-        <Text>Home</Text>
+        <Text>Submit Talk</Text>
       </View>
     );
   }
 }
 
-export default PureRender(Home);
+export default PureRender(SubmitTalk);

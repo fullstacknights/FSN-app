@@ -20,7 +20,7 @@ class Header extends Component {
               size={30}
             />
           </TouchableOpacity>
-          <Text style={styles.text}>Home</Text>
+          <Text style={styles.text}>{this.props.headerText}</Text>
         </View>
       </View>
     );

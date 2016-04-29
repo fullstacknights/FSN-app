@@ -4,12 +4,13 @@ import React, {
   StatusBar,
   View
 } from 'react-native';
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import PureRender from './components/pure-render';
-// import * as actions from './actions';
-// import { connect } from 'react-redux';
+import * as actions from './actions';
+import { connect } from 'react-redux';
 import Drawer from 'react-native-drawer';
 import { Header, Menu } from './components';
+import { getComponent } from './utils';
 
 
 const styles = StyleSheet.create({
@@ -39,12 +40,17 @@ class Container extends Component {
     StatusBar.setHidden(false, 'slide');
     this.setState({ drawerOpen: false });
   };
-
   render() {
+    const Component = this.props.component;
     return (
       <Drawer
         captureGestures={false}
-        content={<Menu/>}
+        content={
+          <Menu
+            toggleLeftDrawer={this.toggleLeftDrawer}
+            transitionTo={this.props.actions.transitionTo}
+          />
+        }
         onCloseStart={this.handleShowStatusBar}
         onOpenStart={this.handleHideStatusBar}
         openDrawerOffset={80}
@@ -54,11 +60,24 @@ class Container extends Component {
         tweenHandler={Drawer.tweenPresets.parallax}
         type='static'
       >
-        <Header toggleLeftDrawer={this.toggleLeftDrawer}/>
-        <View style={styles.overlay}></View>
+        <Header
+          headerText={this.props.headerText}
+          toggleLeftDrawer={this.toggleLeftDrawer}
+        />
+        <View style={styles.overlay}>
+          <Component/>
+        </View>
       </Drawer>
     );
   }
 }
 
-export default PureRender(Container);
+export default connect(state => ({
+  headerText: state.router.headerText,
+  name: state.router.name,
+  component: state.router.component
+}),
+(dispatch) => ({
+  actions: bindActionCreators(actions, dispatch)
+})
+)(PureRender(Container));

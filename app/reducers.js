@@ -1,20 +1,14 @@
 import * as types from './actionTypes';
+import { getComponent } from './utils';
 
-const initialState = {
-  count: 0
-};
+const initialState = getComponent('home');
 
-const counter = (state = initialState, action = {}) => {
+const router = (state = initialState, action = {}) => {
   switch (action.type) {
-    case types.INCREMENT:
+    case types.TRANSITION_TO:
       return {
         ...state,
-        count: state.count + 1
-      };
-    case types.DECREMENT:
-      return {
-        ...state,
-        count: state.count - 1
+        ...getComponent(action.name)
       };
     default:
       return state;
@@ -23,5 +17,5 @@ const counter = (state = initialState, action = {}) => {
 
 
 export {
-  counter
+  router
 };
