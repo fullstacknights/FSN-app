@@ -1,7 +1,7 @@
 import React, { Component } from 'react-native';
 import { Provider } from 'react-redux';
 
-import Container from './Container';
+import Router from './Router/Container';
 import configureStore from './store/configureStore';
 
 console.disableYellowBox = true;
@@ -12,7 +12,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Container/>
+        <Router/>
       </Provider>
     );
   }

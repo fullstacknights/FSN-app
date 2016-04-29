@@ -5,12 +5,11 @@ import React, {
   View
 } from 'react-native';
 import { bindActionCreators } from 'redux';
-import PureRender from './components/pure-render';
-import * as actions from './actions';
 import { connect } from 'react-redux';
 import Drawer from 'react-native-drawer';
-import { Header, Menu } from './components';
-import { getComponent } from './utils';
+import * as actions from './actions';
+import { Header, Menu, PureRender } from '../components';
+import { getComponentFromRoute } from '../utils';
 
 
 const styles = StyleSheet.create({
@@ -41,7 +40,7 @@ class Container extends Component {
     this.setState({ drawerOpen: false });
   };
   render() {
-    const Component = this.props.component;
+    const Component = getComponentFromRoute(this.props.name);
     return (
       <Drawer
         captureGestures={false}
@@ -74,8 +73,7 @@ class Container extends Component {
 
 export default connect(state => ({
   headerText: state.router.headerText,
-  name: state.router.name,
-  component: state.router.component
+  name: state.router.name
 }),
 (dispatch) => ({
   actions: bindActionCreators(actions, dispatch)

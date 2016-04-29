@@ -1,5 +1,7 @@
-import getComponent from './getComponent';
+import getRoute from './getRoute';
+import getComponentFromRoute from './getComponentFromRoute';
 
 export {
-  getComponent
+  getRoute,
+  getComponentFromRoute
 };
