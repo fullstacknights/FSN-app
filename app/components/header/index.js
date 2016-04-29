@@ -17,7 +17,7 @@ class Header extends Component {
             <Icon
               color='white'
               name='menu'
-              size={30}
+              size={25}
             />
           </TouchableOpacity>
           <Text style={styles.text}>{this.props.headerText}</Text>
@@ -26,5 +26,10 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  headerText: React.PropTypes.string,
+  toggleLeftDrawer: React.PropTypes.func
+};
 
 export default PureRender(Header);

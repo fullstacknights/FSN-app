@@ -4,10 +4,11 @@ export default StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'flex-end',
-    height: 55,
+    height: 60,
     backgroundColor: '#2C3E50',
     padding: 5,
-    paddingLeft: 10
+    paddingLeft: 10,
+    paddingBottom: 10
   },
   wrap: {
     flexDirection: 'row',

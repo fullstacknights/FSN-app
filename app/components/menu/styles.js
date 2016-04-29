@@ -3,7 +3,9 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    position: 'relative'
+    position: 'relative',
+    borderRightWidth: 1,
+    borderRightColor: 'rgba(100, 100, 100, 0.4)'
   },
   banner: {
     alignItems: 'center',
@@ -39,7 +41,8 @@ export default StyleSheet.create({
   nav: {
     flex: 1,
     marginTop: 20,
-    paddingLeft: 50
+    paddingLeft: 50,
+    paddingRight: 10
   },
   navLink: {
     color: '#233140',
