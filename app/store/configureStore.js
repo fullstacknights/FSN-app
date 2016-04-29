@@ -8,11 +8,12 @@ import * as reducers from '../reducers';
 
 const devToolsConfig = {
   hostname: 'localhost',
-  port: 8000
+  port: 9000
 };
 
 const isDebuggingInChrome = __DEV__ && !!window.navigator.userAgent;
-const createFSNStore = compose(applyMiddleware(thunk), devTools(devToolsConfig))(createStore);
+const createFSNStore = compose(
+  applyMiddleware(thunk), devTools(devToolsConfig))(createStore);
 
 function configureStore(onComplete) {
   const reducer = combineReducers(reducers);
