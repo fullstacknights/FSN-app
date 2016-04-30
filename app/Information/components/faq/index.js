@@ -5,12 +5,27 @@ import React, {
   Text
 } from 'react-native';
 import Spinner from 'react-native-spinkit';
+import Accordion from 'react-native-collapsible/Accordion';
 import { PureRender } from '../../../components';
 import styles from './styles';
 
 class Faq extends Component {
+  _renderHeader = (section) => {
+    return (
+      <View style={styles.header}>
+        <Text style={styles.title}>{section.question}</Text>
+      </View>
+    );
+  };
+  _renderContent = (section) => {
+    return (
+      <View>
+        <Text style={styles.answer}>{section.answer}</Text>
+      </View>
+    );
+  };
   render() {
-    if (this.props.fetching) {
+    if (this.props.fetching && this.props.faq.length === 0) {
       return (
         <View style={styles.loader}>
           <Spinner
@@ -22,8 +37,13 @@ class Faq extends Component {
       );
     }
     return (
-      <ScrollView>
-        <Text>Faq</Text>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Accordion
+          sections={this.props.faq}
+          renderHeader={this._renderHeader}
+          renderContent={this._renderContent}
+          underlayColor='transparent'
+        />
       </ScrollView>
     );
   }

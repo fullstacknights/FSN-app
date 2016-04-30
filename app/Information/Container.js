@@ -18,7 +18,7 @@ class Information extends Component {
   render() {
     return (
       <ScrollableTabView
-        initialPage={0}
+        initialPage={1}
         tabBarBackgroundColor='#2C3E50'
         tabBarActiveTextColor='#50E3C2'
         tabBarUnderlineColor='#50E3C2'
