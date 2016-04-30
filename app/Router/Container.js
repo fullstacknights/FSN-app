@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   }
 });
 
-class Container extends Component {
+class Router extends Component {
   constructor(props) {
     super(props);
     this.state = { drawerOpen: false };
@@ -78,4 +78,4 @@ export default connect(state => ({
 (dispatch) => ({
   actions: bindActionCreators(actions, dispatch)
 })
-)(PureRender(Container));
+)(PureRender(Router));
