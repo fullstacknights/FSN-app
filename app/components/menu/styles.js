@@ -56,7 +56,7 @@ export default StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     padding: 15,
-    borderRadius: 5
+    borderRadius: 3
   },
   ticketsText: {
     color: 'white',
