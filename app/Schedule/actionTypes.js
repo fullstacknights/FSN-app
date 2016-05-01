@@ -1,0 +1,2 @@
+export const IS_FETCHING = 'IS_FETCHING';
+export const POPULATE_SCHEDULE = 'POPULATE_SCHEDULE';
