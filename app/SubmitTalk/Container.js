@@ -5,13 +5,11 @@ import React, {
 } from 'react-native';
 import { PureRender } from '../components';
 
+import Form from './components/form/index';
+
 class SubmitTalk extends Component {
   render() {
-    return (
-      <View>
-        <Text>Submit Talk</Text>
-      </View>
-    );
+    return (<Form />);
   }
 }
 
