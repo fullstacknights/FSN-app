@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "^0.14.8",
     "react-native": "^0.24.1",
+    "react-native-collapsible": "^0.5.6",
     "react-native-drawer": "^2.0.0",
     "react-native-scrollable-tab-view": "^0.4.1",
     "react-native-simple-radio-button": "^2.0.0",

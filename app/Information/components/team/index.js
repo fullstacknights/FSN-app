@@ -2,7 +2,8 @@ import React, {
   Component,
   ScrollView,
   View,
-  Text
+  Text,
+  Image
 } from 'react-native';
 import Spinner from 'react-native-spinkit';
 import { PureRender } from '../../../components';
@@ -10,7 +11,7 @@ import styles from './styles';
 
 class Team extends Component {
   render() {
-    if (this.props.fetching) {
+    if (this.props.fetching && this.props.faq.length === 0) {
       return (
         <View style={styles.loader}>
           <Spinner
@@ -22,8 +23,23 @@ class Team extends Component {
       );
     }
     return (
-      <ScrollView>
-        <Text>team</Text>
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.wrap}>
+          {this.props.team.map((member, idx) => {
+            return (
+              <View key={idx} style={styles.member}>
+                <View style={styles.image}>
+                  <Image
+                    style={styles.image}
+                    source={{ uri: member.image }}
+                  />
+                </View>
+                <Text style={styles.name}>{member.name}</Text>
+                <Text style={styles.name}>{member.twitter}</Text>
+              </View>
+            );
+          })}
+        </View>
       </ScrollView>
     );
   }
