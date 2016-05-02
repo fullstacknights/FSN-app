@@ -66,15 +66,16 @@ class Activities extends Component {
       );
     }
 
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     const dataSource = ds.cloneWithRows(this.props.data.schedule);
     return (
       <ListView
         dataSource={dataSource}
         renderFooter={this.renderFooter}
-        renderRow={rowData => this.renderActivities(rowData)} />
+        renderRow={rowData => this.renderActivities(rowData)}
+      />
     );
   }
 }
 
-export default PureRender(Activities)
+export default PureRender(Activities);

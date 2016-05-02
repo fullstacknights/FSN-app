@@ -1,8 +1,5 @@
 import React, {
-  Component,
-  View,
-  ScrollView,
-  Text
+  Component
 } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -18,7 +15,7 @@ class Information extends Component {
   render() {
     return (
       <ScrollableTabView
-        initialPage={1}
+        initialPage={0}
         tabBarBackgroundColor='#2C3E50'
         tabBarActiveTextColor='#50E3C2'
         tabBarUnderlineColor='#50E3C2'

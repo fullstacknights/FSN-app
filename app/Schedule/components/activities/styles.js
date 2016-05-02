@@ -11,7 +11,7 @@ export default StyleSheet.create({
   },
   submitTalkWrapper: {
     borderTopWidth: 1,
-    borderTopColor: '#E2E2E2',
+    borderTopColor: '#E2E2E2'
   },
   submitTalkButton: {
     backgroundColor: '#233140',
