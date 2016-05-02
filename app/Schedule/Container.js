@@ -1,7 +1,6 @@
 import React, { Component } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Spinner from 'react-native-spinkit';
 
 import * as ScheduleActions from './actions';
 import * as RouterActions from '../Router/actions';
@@ -16,7 +15,8 @@ class Schedule extends Component {
   render() {
     return (
       <Activities
-        {...this.props} />
+        {...this.props}
+      />
     );
   }
 }

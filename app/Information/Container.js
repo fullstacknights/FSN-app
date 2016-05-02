@@ -1,17 +1,12 @@
 import React, {
   Component
 } from 'react-native';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import * as actions from './actions';
 import { PureRender } from '../components';
 import { Info, Team, Faq } from './components';
 
 class Information extends Component {
-  componentDidMount() {
-    this.props.actions.fetchJson();
-  }
   render() {
     return (
       <ScrollableTabView
@@ -39,15 +34,11 @@ class Information extends Component {
 }
 
 export default connect(state => ({
-  fetching: state.information.fetching,
-  faq: state.information.faq,
-  team: state.information.team,
-  social: state.information.social,
-  codeOfConduct: state.information.codeOfConduct,
-  wifi: state.information.wifi,
-  slackUrl: state.information.slackUrl
-}),
-(dispatch) => ({
-  actions: bindActionCreators(actions, dispatch)
-})
-)(PureRender(Information));
+  fetching: state.staticData.fetching,
+  faq: state.staticData.faq,
+  team: state.staticData.team,
+  social: state.staticData.social,
+  codeOfConduct: state.staticData.codeOfConduct,
+  wifi: state.staticData.wifi,
+  slackUrl: state.staticData.slackUrl
+}))(PureRender(Information));

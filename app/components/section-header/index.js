@@ -8,6 +8,6 @@ const SectionHeader = props => {
       <Text style={styles.darkGreyText}>{props.header}</Text>
     </View>
   );
-}
+};
 
 export default SectionHeader;

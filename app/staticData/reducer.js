@@ -7,10 +7,11 @@ const initialState = {
   social: {},
   codeOfConduct: [],
   wifi: {},
-  slackUrl: ''
+  slackUrl: '',
+  photos: []
 };
 
-const information = (state = initialState, action = {}) => {
+const staticData = (state = initialState, action = {}) => {
   switch (action.type) {
     case types.SET_FETCHING:
       return {
@@ -26,7 +27,8 @@ const information = (state = initialState, action = {}) => {
         social: action.json.social,
         codeOfConduct: action.json.codeOfConduct,
         wifi: action.json.wifi,
-        slackUrl: action.json.slackUrl
+        slackUrl: action.json.slackUrl,
+        photos: action.json.photos
       };
     default:
       return state;
@@ -34,4 +36,4 @@ const information = (state = initialState, action = {}) => {
 };
 
 
-export default information;
+export default staticData;

@@ -10,6 +10,7 @@ import Drawer from 'react-native-drawer';
 import * as actions from './actions';
 import { Header, Menu, PureRender } from '../components';
 import { getComponentFromRoute } from '../utils';
+import * as staticDataActions from '../staticData/actions';
 
 
 const styles = StyleSheet.create({
@@ -23,6 +24,9 @@ class Router extends Component {
   constructor(props) {
     super(props);
     this.state = { drawerOpen: false };
+  }
+  componentWillMount() {
+    this.props.staticDataActions.fetchJson();
   }
   toggleLeftDrawer = () => {
     if (this.state.drawerOpen) {
@@ -76,6 +80,7 @@ export default connect(state => ({
   name: state.router.name
 }),
 (dispatch) => ({
-  actions: bindActionCreators(actions, dispatch)
+  actions: bindActionCreators(actions, dispatch),
+  staticDataActions: bindActionCreators(staticDataActions, dispatch)
 })
 )(PureRender(Router));

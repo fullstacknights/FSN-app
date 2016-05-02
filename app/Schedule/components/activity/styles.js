@@ -20,4 +20,4 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#E2E2E2'
   }
-})
+});

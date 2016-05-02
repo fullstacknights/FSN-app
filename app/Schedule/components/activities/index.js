@@ -21,9 +21,9 @@ class Activities extends Component {
   }
 
   handlePress(route) {
-    return (() => {
-      this.props.routerActions.transitionTo(route)
-    });
+    return () => {
+      this.props.routerActions.transitionTo(route);
+    };
   }
 
   renderActivities(rowData) {
@@ -31,11 +31,14 @@ class Activities extends Component {
       <View>
         <SectionHeader header={rowData.startingAt} />
         {rowData.activities.map((activity, index) => {
-          const addBorder = ((rowData.activities.length - 1) === index) ? false : true;
-            return (
-              <Activity addBorder={addBorder} {...activity} />
-            );
-          }
+          const addBorder = (rowData.activities.length - 1) === index;
+          return (
+            <Activity
+              key={index}
+              addBorder={addBorder}
+              {...activity}
+            />
+          );}
         )}
       </View>
     );
@@ -66,13 +69,15 @@ class Activities extends Component {
       );
     }
 
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    });
     const dataSource = ds.cloneWithRows(this.props.data.schedule);
     return (
       <ListView
         dataSource={dataSource}
         renderFooter={this.renderFooter}
-        renderRow={rowData => this.renderActivities(rowData)}
+        renderRow={this.renderActivities}
       />
     );
   }

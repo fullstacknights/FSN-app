@@ -5,12 +5,13 @@ import styles from './styles';
 class Activity extends Component {
   renderDuration(duration) {
     if (duration) {
-      return (<Text style={styles.lightGreyText}>{duration}</Text>);
+      return <Text style={styles.lightGreyText}>{duration}</Text>;
     }
+    return <View></View>;
   }
 
   render() {
-    let styling = [styles.activityWrapper];
+    const styling = [styles.activityWrapper];
 
     if (this.props.addBorder) {
       styling.push(styles.borderBottom);
@@ -18,7 +19,11 @@ class Activity extends Component {
 
     return (
       <View style={styling}>
-        <Text style={[styles.darkBlueText, styles.activityTitle]}>{this.props.title}</Text>
+        <Text
+          style={[styles.darkBlueText, styles.activityTitle]}
+        >
+          {this.props.title}
+        </Text>
         {this.renderDuration(this.props.duration)}
       </View>
     );

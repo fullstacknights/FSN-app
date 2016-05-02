@@ -1,9 +1,9 @@
 import router from './Router/reducer';
-import information from './Information/reducer';
+import staticData from './staticData/reducer';
 import schedule from './Schedule/reducer';
 
 export {
   router,
-  information,
+  staticData,
   schedule
 };

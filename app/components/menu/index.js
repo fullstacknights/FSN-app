@@ -1,6 +1,7 @@
 import React, {
   Component,
   View,
+  ScrollView,
   Image,
   Text,
   TouchableOpacity
@@ -23,7 +24,7 @@ class Menu extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.banner}>
           <Image
             style={styles.backImage}
@@ -70,7 +71,7 @@ class Menu extends Component {
             </View>
           </TouchableOpacity>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }

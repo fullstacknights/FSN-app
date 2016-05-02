@@ -5,11 +5,14 @@ import React, {
   Linking,
   TouchableOpacity,
   Text,
-  MapView,
   Platform,
   StyleSheet
 } from 'react-native';
+import { connect } from 'react-redux';
+import Spinner from 'react-native-spinkit';
+import MapView from 'react-native-maps';
 import { PureRender } from '../components';
+import { Photos } from './components';
 
 const styles = StyleSheet.create({
   locationButton: {
@@ -18,13 +21,22 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: 20,
     marginRight: 20,
-    borderRadius: 5
+    borderRadius: 3
   },
   locationText: {
     color: 'white',
     textAlign: 'center',
     fontSize: 18,
     fontWeight: 'bold'
+  },
+  map: {
+    flex: 1,
+    height: 250
+  },
+  loader: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
@@ -40,28 +52,45 @@ class Venue extends Component {
     const region = {
       latitude: 18.39009,
       longitude: -66.06782,
-      latitudeDelta: 0.0022,
-      longitudeDelta: 0.0021
+      latitudeDelta: 0.0010,
+      longitudeDelta: 0.0019
     };
-    const annotations = [{
+    const marker = {
       latitude: 18.39015,
       longitude: -66.06802
-    }];
+    };
     return (
       <ScrollView>
         <MapView
-          style={{ height: 250 }}
-          region={region}
-          annotations={annotations}
-        />
+          style={styles.map}
+          initialRegion={region}
+        >
+          <MapView.Marker
+            coordinate={marker}
+            title='Puerto Rico Science, Technology, and Research Trust'
+          />
+        </MapView>
         <TouchableOpacity onPress={this.handleGetLocation}>
           <View style={styles.locationButton}>
             <Text style={styles.locationText}>Get Location</Text>
           </View>
         </TouchableOpacity>
+        {this.props.fetching ?
+          <View style={styles.loader}>
+            <Spinner
+              type='ThreeBounce'
+              color='#50E3C2'
+              size={80}
+            />
+          </View> :
+          <Photos {...this.props}/>
+        }
       </ScrollView>
     );
   }
 }
 
-export default PureRender(Venue);
+export default connect(state => ({
+  fetching: state.staticData.fetching,
+  photos: state.staticData.photos
+}))(PureRender(Venue));

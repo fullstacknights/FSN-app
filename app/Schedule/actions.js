@@ -12,5 +12,5 @@ export function populateSchedule(data) {
 export function getSchedule() {
   return dispatch => {
     fetchSchedule(dispatch);
-  }
+  };
 }
