@@ -8,7 +8,8 @@ const initialState = {
   codeOfConduct: [],
   wifi: {},
   slackUrl: '',
-  photos: []
+  photos: [],
+  ticketsUrl: ''
 };
 
 const staticData = (state = initialState, action = {}) => {
@@ -28,7 +29,8 @@ const staticData = (state = initialState, action = {}) => {
         codeOfConduct: action.json.codeOfConduct,
         wifi: action.json.wifi,
         slackUrl: action.json.slackUrl,
-        photos: action.json.photos
+        photos: action.json.photos,
+        ticketsUrl: action.json.ticketsUrl
       };
     default:
       return state;

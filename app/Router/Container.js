@@ -50,6 +50,7 @@ class Router extends Component {
         captureGestures={false}
         content={
           <Menu
+            ticketsUrl={this.props.ticketsUrl}
             toggleLeftDrawer={this.toggleLeftDrawer}
             transitionTo={this.props.actions.transitionTo}
           />
@@ -77,7 +78,8 @@ class Router extends Component {
 
 export default connect(state => ({
   headerText: state.router.headerText,
-  name: state.router.name
+  name: state.router.name,
+  ticketsUrl: state.staticData.ticketsUrl
 }),
 (dispatch) => ({
   actions: bindActionCreators(actions, dispatch),

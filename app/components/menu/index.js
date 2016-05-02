@@ -4,7 +4,8 @@ import React, {
   ScrollView,
   Image,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Linking
 } from 'react-native';
 import PureRender from '../pure-render';
 import styles from './styles';
@@ -15,12 +16,18 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.handlePress = this.handlePress.bind(this);
+    this.handleBuyTicketsPressed = this.handleBuyTicketsPressed.bind(this);
   }
   handlePress(route) {
     return () => {
       this.props.toggleLeftDrawer();
       this.props.transitionTo(route);
     };
+  }
+  handleBuyTicketsPressed() {
+    if (this.props.ticketsUrl !== '') {
+      Linking.openURL(this.props.ticketsUrl);
+    }
   }
   render() {
     return (
@@ -65,7 +72,7 @@ class Menu extends Component {
               <Text style={styles.navLink}>Request Open Mic</Text>
             </TouchableOpacity>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={this.handleBuyTicketsPressed}>
             <View style={styles.ticketsButton}>
               <Text style={styles.ticketsText}>Buy Tickets</Text>
             </View>
