@@ -2,14 +2,16 @@ import React, {
   Component,
   StyleSheet,
   StatusBar,
-  View
+  View,
+  Navigator,
+  BackAndroid,
+  Platform
 } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Drawer from 'react-native-drawer';
-import * as actions from './actions';
 import { Header, Menu, PureRender } from '../components';
-import { getComponentFromRoute } from '../utils';
+import { getComponentFromRoute, getRoute } from '../utils';
 import * as staticDataActions from '../staticData/actions';
 
 
@@ -27,24 +29,39 @@ class Router extends Component {
   }
   componentWillMount() {
     this.props.staticDataActions.fetchJson();
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+      if (this.navigator && this.navigator.getCurrentRoutes().length > 1) {
+        this.navigator.pop();
+        return true;
+      }
+      return false;
+    });
+  }
+  componentWillUnMount() {
+    BackAndroid.removeEventListener('hardwareBackPress');
   }
   toggleLeftDrawer = () => {
     if (this.state.drawerOpen) {
-      this.refs.drawer.close();
+      this.drawer.close();
     } else {
-      this.refs.drawer.open();
+      this.drawer.open();
     }
   };
   handleHideStatusBar = () => {
-    StatusBar.setHidden(true, 'slide');
+    if (Platform.OS === 'ios') {
+      StatusBar.setHidden(true, 'slide');
+    }
     this.setState({ drawerOpen: true });
   };
   handleShowStatusBar = () => {
-    StatusBar.setHidden(false, 'slide');
+    if (Platform.OS === 'ios') {
+      StatusBar.setHidden(false, 'slide');
+    }
     this.setState({ drawerOpen: false });
   };
-  render() {
-    const Component = getComponentFromRoute(this.props.name);
+  renderScene = (route, navigator) => {
+    const Route = getComponentFromRoute(route.name);
+    const headerText = getRoute(route.name).headerText;
     return (
       <Drawer
         captureGestures={false}
@@ -52,37 +69,52 @@ class Router extends Component {
           <Menu
             ticketsUrl={this.props.ticketsUrl}
             toggleLeftDrawer={this.toggleLeftDrawer}
-            transitionTo={this.props.actions.transitionTo}
+            navigator={navigator}
           />
         }
         onCloseStart={this.handleShowStatusBar}
         onOpenStart={this.handleHideStatusBar}
         openDrawerOffset={80}
-        ref='drawer'
+        ref={(c) => this.drawer = c}
         side='left'
         tweenEasing='linear'
         tweenHandler={Drawer.tweenPresets.parallax}
         type='static'
       >
         <Header
-          headerText={this.props.headerText}
+          headerText={headerText}
           toggleLeftDrawer={this.toggleLeftDrawer}
         />
         <View style={styles.overlay}>
-          <Component/>
+          <Route navigator={navigator}/>
         </View>
       </Drawer>
+    );
+  };
+  _customSceneConfig = () => {
+    const config = Navigator.SceneConfigs.HorizontalSwipeJump;
+    return {
+      ...config,
+      gestures: null,
+      defaultTransitionVelocity: 0
+    };
+  };
+  render() {
+    return (
+      <Navigator
+        ref={(nav) => this.navigator = nav}
+        configureScene={this._customSceneConfig}
+        initialRoute={{ name: 'home' }}
+        renderScene={this.renderScene}
+      />
     );
   }
 }
 
 export default connect(state => ({
-  headerText: state.router.headerText,
-  name: state.router.name,
   ticketsUrl: state.staticData.ticketsUrl
 }),
 (dispatch) => ({
-  actions: bindActionCreators(actions, dispatch),
   staticDataActions: bindActionCreators(staticDataActions, dispatch)
 })
 )(PureRender(Router));

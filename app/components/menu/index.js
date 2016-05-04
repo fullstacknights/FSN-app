@@ -21,7 +21,7 @@ class Menu extends Component {
   handlePress(route) {
     return () => {
       this.props.toggleLeftDrawer();
-      this.props.transitionTo(route);
+      this.props.navigator.push({ name: route });
     };
   }
   handleBuyTicketsPressed() {

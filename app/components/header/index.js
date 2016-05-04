@@ -2,7 +2,8 @@ import React, {
   Component,
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Platform
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PureRender from '../pure-render';
@@ -11,16 +12,22 @@ import styles from './styles';
 class Header extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.wrap}>
-          <TouchableOpacity onPress={this.props.toggleLeftDrawer}>
-            <Icon
-              color='white'
-              name='menu'
-              size={25}
-            />
-          </TouchableOpacity>
-          <Text style={styles.text}>{this.props.headerText}</Text>
+      <View>
+        {Platform.OS === 'ios' ?
+          <View style={styles.statusBar}/> :
+          null
+        }
+        <View style={styles.bar}>
+          <View style={styles.wrap}>
+            <TouchableOpacity onPress={this.props.toggleLeftDrawer}>
+              <Icon
+                color='white'
+                name='menu'
+                size={25}
+              />
+            </TouchableOpacity>
+            <Text style={styles.text}>{this.props.headerText}</Text>
+          </View>
         </View>
       </View>
     );

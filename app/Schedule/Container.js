@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as ScheduleActions from './actions';
-import * as RouterActions from '../Router/actions';
 import Activities from './components/activities/index.js';
 import { PureRender } from '../components';
 
@@ -29,8 +28,7 @@ function setupState(state) {
 
 function setupActions(dispatch) {
   return ({
-    scheduleActions: bindActionCreators(ScheduleActions, dispatch),
-    routerActions: bindActionCreators(RouterActions, dispatch)
+    scheduleActions: bindActionCreators(ScheduleActions, dispatch)
   });
 }
 

@@ -1,14 +1,16 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  container: {
+  statusBar: {
+    height: 20,
+    backgroundColor: '#243342'
+  },
+  bar: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
-    height: 60,
+    alignItems: 'center',
+    height: 50,
     backgroundColor: '#2C3E50',
-    padding: 5,
-    paddingLeft: 10,
-    paddingBottom: 10
+    padding: 10
   },
   wrap: {
     flexDirection: 'row',
@@ -16,7 +18,7 @@ export default StyleSheet.create({
   },
   text: {
     color: 'white',
-    paddingLeft: 10,
+    marginLeft: 10,
     fontSize: 16,
     fontWeight: 'bold'
   }

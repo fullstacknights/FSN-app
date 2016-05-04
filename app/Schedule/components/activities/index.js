@@ -22,7 +22,7 @@ class Activities extends Component {
 
   handlePress(route) {
     return () => {
-      this.props.routerActions.transitionTo(route);
+      this.props.navigator.push({ name: route });
     };
   }
 
