@@ -10,7 +10,9 @@ export default StyleSheet.create({
     alignItems: 'center',
     height: 50,
     backgroundColor: '#2C3E50',
-    padding: 10
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#243342'
   },
   wrap: {
     flexDirection: 'row',

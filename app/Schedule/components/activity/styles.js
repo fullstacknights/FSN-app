@@ -11,7 +11,9 @@ export default StyleSheet.create({
     paddingLeft: 8,
     paddingRight: 8,
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#979797'
   },
   activityTitle: {
     marginBottom: 6
