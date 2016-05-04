@@ -8,9 +8,8 @@ import React, {
 import Spinner from 'react-native-spinkit';
 
 import styles from './styles';
-import Activity from '../activity/index';
-import PureRender from '../../../components/pure-render/index';
-import SectionHeader from '../../../components/section-header/index';
+import Activity from '../activity';
+import { PureRender, SectionHeader } from '../../../components';
 
 class Activities extends Component {
   constructor(props) {

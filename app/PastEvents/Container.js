@@ -1,18 +1,27 @@
 import React, {
-  Component,
-  View,
-  Text
+  Component
 } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { PureRender } from '../components';
+import * as actions from './actions';
+import { Events } from './components';
 
 class PastEvents extends Component {
+  componentDidMount() {
+    this.props.actions.fetchPastEvents();
+  }
   render() {
     return (
-      <View>
-        <Text>Past Events</Text>
-      </View>
+      <Events events={this.props.events} />
     );
   }
 }
 
-export default PureRender(PastEvents);
+export default connect(state => ({
+  events: state.pastEvents.events
+}),
+(dispatch) => ({
+  actions: bindActionCreators(actions, dispatch)
+})
+)(PureRender(PastEvents));
