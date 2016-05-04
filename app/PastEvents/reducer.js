@@ -13,6 +13,6 @@ export default function pastEvents(state = initialState, action) {
           parseInt(curr.event.title.split(' ')[1].substring(1), 10) )
       };
     default:
-      return (initialState);
+      return state;
   }
 }
