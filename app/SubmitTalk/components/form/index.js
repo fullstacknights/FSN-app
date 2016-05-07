@@ -26,7 +26,7 @@ const Form = props => {
         <Text style={[styles.whiteText, styles.boldText]}>
           What is your name?
         </Text>
-        <TextInput style={styles.input} autoFocus={true} autoCapitalize="words" onEndEditing={props.actions.handleAddName} />
+        <TextInput style={styles.input} autoFocus={true} autoCapitalize="words" autoCorrect={false} onEndEditing={props.actions.handleAddName} />
       </View>
       <View style={styles.spaceBottom}>
         <Text style={[styles.whiteText, styles.boldText]}>

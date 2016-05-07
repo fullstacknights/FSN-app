@@ -4,6 +4,8 @@ import styles from './styles';
 import logo from '../../../assets/logo.png';
 
 const Form = props => {
+  console.log(props);
+
   return (
     <ScrollView style={[styles.container, styles.scrollView]}>
       <View style={styles.logoWrapper}>
@@ -18,16 +20,16 @@ const Form = props => {
         <Text style={[styles.whiteText, styles.boldText]}>
           What is your name?
         </Text>
-        <TextInput style={styles.input}/>
+        <TextInput style={styles.input} autoCapitalize="words" autoFocus={true} autoCorrect={false} onEndEditing={props.actions.handleAddName} />
       </View>
       <View style={styles.spaceBottom}>
         <Text style={[styles.whiteText, styles.boldText]}>
           What is the topic?
         </Text>
-        <TextInput style={styles.input}/>
+        <TextInput style={styles.input} onEndEditing={props.actions.handleAddTopic} />
       </View>
       <View style={styles.spaceBottom}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={props.actions.handleSubmit.bind(null, props.openMic)}>
           <View style={styles.openMicButton}>
             <Text style={styles.openMicText}>Submit</Text>
           </View>
