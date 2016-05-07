@@ -5,13 +5,11 @@ import React, {
 } from 'react-native';
 import { PureRender } from '../components';
 
+import Form from './components/form/index';
+
 class OpenMic extends Component {
   render() {
-    return (
-      <View>
-        <Text>Open Mic</Text>
-      </View>
-    );
+    return (<Form />);
   }
 }
 
