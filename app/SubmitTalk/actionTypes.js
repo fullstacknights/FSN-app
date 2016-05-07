@@ -1,0 +1,7 @@
+export const ADD_NAME = 'ADD_NAME';
+export const ADD_EMAIL = 'ADD_EMAIL';
+export const ADD_ONLINE_PROFILE = 'ADD_ONLINE_PROFILE';
+export const ADD_PROFESSION = 'ADD_PROFESSION';
+export const ADD_TOPIC = 'ADD_TOPIC';
+export const ADD_IMPORTANCE = 'ADD_IMPORTANCE';
+export const ADD_QUESTIONS_COMMENTS = 'ADD_QUESTIONS_COMMENTS';

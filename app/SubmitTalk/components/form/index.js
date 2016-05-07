@@ -26,19 +26,19 @@ const Form = props => {
         <Text style={[styles.whiteText, styles.boldText]}>
           What is your name?
         </Text>
-        <TextInput style={styles.input}/>
+        <TextInput style={styles.input} autoFocus={true} autoCapitalize="words" onEndEditing={props.actions.handleAddName} />
       </View>
       <View style={styles.spaceBottom}>
         <Text style={[styles.whiteText, styles.boldText]}>
           What is your email address?
         </Text>
-        <TextInput style={styles.input}/>
+        <TextInput style={styles.input} keyboardType="email-address" autoCapitalize="none" autoCorrect={false} onEndEditing={props.actions.handleAddEmail} />
       </View>
       <View style={styles.spaceBottom}>
         <Text style={[styles.whiteText, styles.boldText]}>
           Link to your online profile (e.g. @gcollazo)
         </Text>
-        <TextInput style={styles.input}/>
+        <TextInput style={styles.input}  autoCapitalize="words" onEndEditing={props.actions.handleAddOnlineProfile}/>
       </View>
       <View style={styles.spaceBottom}>
         <Text style={[styles.whiteText, styles.boldText]}>
@@ -50,30 +50,30 @@ const Form = props => {
             initial={0}
             buttonColor={'#50C900'}
             labelColor={'white'}
-            onPress={(value) => {this.setState({value:value})}}
+            onPress={props.actions.handleAddProfession}
             style={styles.radioSpacing} />
         </View>
         <View style={styles.spaceBottom}>
           <Text style={[styles.whiteText, styles.boldText]}>
             What is your proposed topic?
           </Text>
-          <TextInput multiline={true} style={[styles.input, styles.textarea]} />
+          <TextInput multiline={true} style={[styles.input, styles.textarea]} onEndEditing={props.actions.handleAddTopic}/>
         </View>
         <View style={styles.spaceBottom}>
           <Text style={[styles.whiteText, styles.boldText]}>
             Why should this be presented in FSN?
           </Text>
-          <TextInput multiline={true} style={[styles.input, styles.textarea]} />
+          <TextInput multiline={true} style={[styles.input, styles.textarea]} onEndEditing={props.actions.handleAddImportance} />
         </View>
         <View>
           <Text style={[styles.whiteText, styles.boldText]}>
             Your questions or comments
           </Text>
-          <TextInput multiline={true} style={[styles.input, styles.textarea]} />
+          <TextInput multiline={true} style={[styles.input, styles.textarea]} onEndEditing={props.actions.handleAddQuestionsComments}/>
         </View>
       </View>
       <View style={styles.spaceBottom}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={props.actions.handleSubmit.bind(null, props.talk)}>
           <View style={styles.submitTalkButton}>
             <Text style={styles.submitTalkText}>Submit</Text>
           </View>
