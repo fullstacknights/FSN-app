@@ -1,6 +1,11 @@
 import React, { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  loader: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   container: {
     flex: 1,
     padding: 12

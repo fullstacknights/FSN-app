@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes';
 
 const initialState = {
+  isLoading: false,
   name: '',
   topic: ''
 }
@@ -11,6 +12,8 @@ export default function openMic(state = initialState, action) {
       return (Object.assign({}, state, {name: action.name}));
     case actionTypes.ADD_TOPIC:
       return (Object.assign({}, state, {topic: action.topic}));
+    case actionTypes.IS_LOADING:
+      return (Object.assign({}, state, {isLoading: action.isLoading}));
     default:
       return (state);
   }
