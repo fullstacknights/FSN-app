@@ -40,7 +40,6 @@ export default class Form extends Component {
   }
 
   render() {
-    console.log(this.props.openMic.isLoading);
     if (this.props.openMic.isLoading) {
       return (
         <View style={styles.loader}>

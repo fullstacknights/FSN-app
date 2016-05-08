@@ -7,6 +7,8 @@ const headers = {
 const url = `${config.apiUrl}/classes/OpenMic`;
 
 export default function(data) {
+  delete data.isLoading;
+
   return fetch(url, {
     method: 'POST',
     headers,
