@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import postOpenMic from '../api/postOpenMic';
+import submit from '../api/postData';
 
 export function handleAddName(event) {
   return ({type: actionTypes.ADD_NAME, name: event.nativeEvent.text});
@@ -16,7 +16,7 @@ export function handleIsLoading(isLoading) {
 export function handleSubmit(data) {
   return (dispatch => {
     dispatch(handleIsLoading(true));
-    postOpenMic(data)
+    submit(data, 'classes/OpenMic')
       .then(res => {
         dispatch(handleIsLoading(false));
         // TODO: Display a success message

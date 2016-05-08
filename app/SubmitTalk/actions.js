@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import submit from '../api/postData';
 
 export function handleAddName(event) {
   return ({type: actionTypes.ADD_NAME, name: event.nativeEvent.text});
@@ -28,8 +29,16 @@ export function handleAddQuestionsComments(event) {
   return ({type: actionTypes.ADD_QUESTIONS_COMMENTS, questionsComments: event.nativeEvent.text});
 }
 
-// TODO: Make POST to Parse
+export function handleIsLoading(isLoading) {
+  return ({type: actionTypes.IS_LOADING, isLoading});
+}
+
 export function handleSubmit(data) {
-  console.log(data);
-  return ({type: 'yo quiero cantar'});
+  return (dispatch => {
+    dispatch(handleIsLoading(true));
+    submit(data, 'classes/TalkSubmission')
+      .then(() => {
+        dispatch(handleIsLoading(false));
+      });
+  });
 }
