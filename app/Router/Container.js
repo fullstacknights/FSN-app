@@ -10,6 +10,7 @@ import React, {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Drawer from 'react-native-drawer';
+import dismissKeyboard from 'react-native-dismiss-keyboard';
 import { Header, Menu, PureRender } from '../components';
 import { getComponentFromRoute, getRoute } from '../utils';
 import * as staticDataActions from '../staticData/actions';
@@ -51,6 +52,7 @@ class Router extends Component {
     if (Platform.OS === 'ios') {
       StatusBar.setHidden(true, 'slide');
     }
+    dismissKeyboard();
     this.setState({ drawerOpen: true });
   };
   handleShowStatusBar = () => {

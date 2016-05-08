@@ -1,4 +1,12 @@
-import React, { Component, Image, ScrollView, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import React, {
+  Component,
+  Image,
+  ScrollView,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity
+} from 'react-native';
 import Spinner from 'react-native-spinkit';
 
 import styles from './styles';
