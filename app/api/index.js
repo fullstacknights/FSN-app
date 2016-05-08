@@ -1,9 +1,9 @@
 import getStaticJson from './getStaticJson';
 import getPastEvents from './getPastEvents';
-import postOpenMic from './postOpenMic';
+import postData from './postData';
 
 export {
   getStaticJson,
   getPastEvents,
-  postOpenMic
+  postData
 };
