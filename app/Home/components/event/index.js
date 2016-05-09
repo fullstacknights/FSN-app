@@ -25,7 +25,7 @@ class Event extends Component {
     };
   }
   render() {
-    if (this.props.fetching) {
+    if (this.props.fetching && Object.keys(this.props.event).length === 0) {
       return (
         <View style={styles.loader}>
           <Spinner
@@ -50,7 +50,7 @@ class Event extends Component {
         <View style={styles.speakers}>
           {this.props.event.talks.map((talk, idx) => {
             return (
-              <View style={styles.speaker}>
+              <View key={idx} style={styles.speaker}>
                 <Image source={{ uri: talk.profileImg }} style={styles.speakerImg}/>
                 <View style={styles.talkInfo}>
                   <Text style={styles.talkTitle}>{talk.title}</Text>

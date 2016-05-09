@@ -56,7 +56,7 @@ class Activities extends Component {
   }
 
   render() {
-    if (this.props.data.isFetching) {
+    if (this.props.data.isFetching && this.props.data.schedule.length === 0) {
       return (
         <View style={styles.loader}>
           <Spinner

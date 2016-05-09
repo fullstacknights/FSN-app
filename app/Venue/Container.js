@@ -75,7 +75,7 @@ class Venue extends Component {
             <Text style={styles.locationText}>Get Location</Text>
           </View>
         </TouchableOpacity>
-        {this.props.fetching ?
+        {this.props.fetching && this.props.photos.length === 0 ?
           <View style={styles.loader}>
             <Spinner
               type='ThreeBounce'

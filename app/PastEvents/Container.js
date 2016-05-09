@@ -8,8 +8,10 @@ import * as actions from './actions';
 import { Events } from './components';
 
 class PastEvents extends Component {
-  componentDidMount() {
-    this.props.actions.fetchPastEvents();
+  componentWillMount() {
+    if (this.props.events.length === 0) {
+      this.props.actions.fetchPastEvents();
+    }
   }
   render() {
     return (

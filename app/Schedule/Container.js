@@ -10,7 +10,6 @@ class Schedule extends Component {
   componentDidMount() {
     this.props.scheduleActions.getSchedule();
   }
-
   render() {
     return (
       <Activities

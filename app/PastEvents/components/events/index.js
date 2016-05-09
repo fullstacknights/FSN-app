@@ -16,12 +16,13 @@ class Events extends Component {
       <View>
         <SectionHeader header={`Talks ${header}`}/>
         <View style={{ paddingTop: 10 }}>
-        {rowData.talks.map(talk => {
+        {rowData.talks.map((talk, idx) => {
           const index = talk.video.indexOf('v=') + 2;
           const videoId = talk.video.substring(index);
           const thumbnailUrl = `http://img.youtube.com/vi/${videoId}/0.jpg`;
           return (
             <Talk
+              key={idx}
               title={talk.title}
               speaker={talk.author}
               videoUrl={talk.video}

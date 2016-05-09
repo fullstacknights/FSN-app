@@ -17,8 +17,6 @@ export function setFetching() {
 export function fetchJson() {
   return (dispatch) => {
     dispatch(setFetching());
-    getStaticJson()
-      .then((json) => dispatch(setJson(json)))
-      .catch((err) => console.log(err));
+    getStaticJson(dispatch, setJson);
   };
 }
