@@ -3,7 +3,8 @@ import React, {
   ScrollView,
   View,
   Image,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native';
 import Spinner from 'react-native-spinkit';
 import moment from 'moment';
@@ -14,6 +15,15 @@ import logo from '../../../assets/logo.png';
 
 
 class Event extends Component {
+  constructor(props) {
+    super(props);
+    this.handlePress = this.handlePress.bind(this);
+  }
+  handlePress(route) {
+    return () => {
+      this.props.navigator.push({ name: route });
+    };
+  }
   render() {
     if (this.props.fetching) {
       return (
@@ -33,20 +43,30 @@ class Event extends Component {
             <View style={styles.logoWrap}>
               <Image source={logo} style={styles.logo}/>
             </View>
-            <Text style={styles.eventVersion}>{this.props.event.title.split(' ')[1]}</Text>
-            <Text style={styles.eventDate}>{moment(this.props.event.date).format('DD/MMM/YYYY')}</Text>
-            <View style={styles.speakers}>
-              {this.props.event.talks.map((talk, idx) => {
-                return (
-                  <View style={styles.speaker}>
-                    <Image source={{ uri: talk.profileImg }} style={styles.speakerImg}/>
-                    <Text style={styles.speakerName}>{talk.author}</Text>
-                  </View>
-                );
-              })}
-            </View>
+            <Text style={styles.eventDate}>{moment(this.props.event.date.iso).format('DD/MMM/YYYY')}</Text>
           </View>
         </Image>
+        <Text style={styles.talksTitle}>Talks</Text>
+        <View style={styles.speakers}>
+          {this.props.event.talks.map((talk, idx) => {
+            return (
+              <View style={styles.speaker}>
+                <Image source={{ uri: talk.profileImg }} style={styles.speakerImg}/>
+                <View style={styles.talkInfo}>
+                  <Text style={styles.talkTitle}>{talk.title}</Text>
+                  <Text style={styles.speakerName}>{talk.author}</Text>
+                </View>
+              </View>
+            );
+          })}
+        </View>
+        <View style={styles.openMicWrapper}>
+          <TouchableOpacity onPress={this.handlePress('open-mic')}>
+            <View style={styles.openMicButton}>
+              <Text style={styles.openMicText}>Request Open Mic</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     );
   }

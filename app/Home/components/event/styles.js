@@ -3,9 +3,10 @@ import { StyleSheet, Dimensions } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    height: 350,
+    height: 300,
     padding: 20,
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    justifyContent: 'center'
   },
   loader: {
     flex: 1,
@@ -14,7 +15,7 @@ export default StyleSheet.create({
   },
   eventBackground: {
     width: Dimensions.get('window').width,
-    height: 350
+    height: 300
   },
   logo: {
     width: 100,
@@ -34,31 +35,63 @@ export default StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 18,
-    marginTop: 20
+    fontSize: 20,
+    marginTop: 30
   },
   speakers: {
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginTop: 20
+    flex: 1
   },
   speaker: {
     flex: 1,
-    alignItems: 'center'
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(151, 151, 151, 0.3)'
   },
   speakerImg: {
-    width: 50,
-    height: 50,
-    borderRadius: 25
+    width: 60,
+    height: 60,
+    borderRadius: 30
   },
   speakerName: {
-    marginTop: 10,
-    fontSize: 16,
-    color: 'white',
-    textAlign: 'center',
+    marginTop: 5,
+    fontSize: 12,
+    color: '#979797',
     fontWeight: 'bold'
+  },
+  talkTitle: {
+    fontSize: 14,
+    color: '#6B6B6B',
+    fontWeight: 'bold'
+  },
+  talkInfo: {
+    flex: 1,
+    marginLeft: 20
+  },
+  talksTitle: {
+    paddingLeft: 15,
+    paddingTop: 5,
+    paddingBottom: 5,
+    backgroundColor: 'rgba(100, 100, 100, 0.2)',
+    fontSize: 16,
+    color: 'rgba(30, 30, 30, 0.8)'
+  },
+  openMicWrapper: {
+    borderTopWidth: 1,
+    borderTopColor: '#E2E2E2'
+  },
+  openMicButton: {
+    backgroundColor: '#233140',
+    borderRadius: 3,
+    margin: 12,
+    padding: 15
+  },
+  openMicText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 20,
+    textAlign: 'center'
   }
 });
