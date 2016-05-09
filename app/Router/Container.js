@@ -69,7 +69,7 @@ class Router extends Component {
         captureGestures={false}
         content={
           <Menu
-            ticketsUrl={this.props.ticketsUrl}
+            event={this.props.currentEvent}
             toggleLeftDrawer={this.toggleLeftDrawer}
             navigator={navigator}
           />
@@ -114,7 +114,7 @@ class Router extends Component {
 }
 
 export default connect(state => ({
-  ticketsUrl: state.staticData.ticketsUrl
+  currentEvent: state.home.event
 }),
 (dispatch) => ({
   staticDataActions: bindActionCreators(staticDataActions, dispatch)

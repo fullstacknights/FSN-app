@@ -25,8 +25,8 @@ class Menu extends Component {
     };
   }
   handleBuyTicketsPressed() {
-    if (this.props.ticketsUrl !== '') {
-      Linking.openURL(this.props.ticketsUrl);
+    if (this.props.event.ticketsLink) {
+      Linking.openURL(this.props.event.ticketsLink);
     }
   }
   render() {
