@@ -59,7 +59,7 @@ export default StyleSheet.create({
     marginTop: 5,
     fontSize: 12,
     color: '#979797',
-    fontWeight: 'bold'
+    fontWeight: '400'
   },
   talkTitle: {
     fontSize: 14,

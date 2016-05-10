@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   darkGreyText: {
-    fontFamily: 'Montserrat',
     color: '#4A4A4A'
   },
   headerWrapper: {
