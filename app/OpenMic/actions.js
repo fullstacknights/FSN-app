@@ -13,12 +13,16 @@ export function handleIsLoading(isLoading) {
   return ({type: actionTypes.IS_LOADING, isLoading});
 }
 
+export function handleClearState() {
+  return ({type: actionTypes.CLEAR_STATE});
+}
+
 export function handleSubmit(data) {
   return (dispatch => {
     dispatch(handleIsLoading(true));
     submit(data, 'classes/OpenMic')
       .then(res => {
-        dispatch(handleIsLoading(false));
+        dispatch(handleClearState());
         // TODO: Display a success message
       });
   });

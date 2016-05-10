@@ -33,12 +33,16 @@ export function handleIsLoading(isLoading) {
   return ({type: actionTypes.IS_LOADING, isLoading});
 }
 
+export function handleClearState() {
+  return ({type: actionTypes.CLEAR_STATE});
+}
+
 export function handleSubmit(data) {
   return (dispatch => {
     dispatch(handleIsLoading(true));
     submit(data, 'classes/TalkSubmission')
       .then(() => {
-        dispatch(handleIsLoading(false));
+        dispatch(handleClearState());
       });
   });
 }

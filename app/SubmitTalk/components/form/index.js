@@ -142,7 +142,7 @@ class Form extends Component {
           onFocus={this.scrollTo('topic')}
           multiline={true}
           style={[styles.input, styles.textarea]}
-          onBlur={props.actions.handleAddTopic}
+          onEndEditing={props.actions.handleAddTopic}
         />
         <View style={styles.spaceBottom}/>
         <Text style={[styles.whiteText, styles.boldText]}>
@@ -153,7 +153,7 @@ class Form extends Component {
           onFocus={this.scrollTo('presented')}
           multiline={true}
           style={[styles.input, styles.textarea]}
-          onBlur={props.actions.handleAddImportance}
+          onEndEditing={props.actions.handleAddImportance}
         />
         <View style={styles.spaceBottom}/>
         <Text style={[styles.whiteText, styles.boldText]}>
