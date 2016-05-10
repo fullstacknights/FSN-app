@@ -14,6 +14,8 @@ import logo from '../../../assets/logo.png';
 
 export default class Form extends Component {
   renderForm() {
+    const buttonState = (this.props.openMic.isLoading) ? styles.openMicDisabled : styles.openMic;
+
     return (
       <ScrollView style={[styles.container, styles.scrollView]}>
         <View style={styles.logoWrapper}>
@@ -37,8 +39,8 @@ export default class Form extends Component {
           <TextInput style={styles.input} onEndEditing={this.props.actions.handleAddTopic} />
         </View>
         <View style={styles.spaceBottom}>
-          <TouchableOpacity onPress={this.props.actions.handleSubmit.bind(null, this.props.openMic)}>
-            <View style={styles.openMicButton}>
+          <TouchableOpacity disabled={true} onPress={this.props.actions.handleSubmit.bind(null, this.props.openMic)}>
+            <View style={[styles.button, buttonState]}>
               <Text style={styles.openMicText}>Submit</Text>
             </View>
           </TouchableOpacity>

@@ -51,14 +51,19 @@ export default StyleSheet.create({
   boldText: {
     fontWeight: 'bold'
   },
-  spaceBottom: {
-    marginBottom: 20
-  },
-  submitTalkButton: {
-    backgroundColor: '#50E3C2',
+  button: {
     borderRadius: 3,
     marginBottom: 20,
     padding: 15
+  },
+  submitTalk: {
+    backgroundColor: '#50E3C2',
+  },
+  submitTalkDisabled: {
+    backgroundColor: 'rgba(80,227,194,0.90)'
+  },
+  spaceBottom: {
+    marginBottom: 20
   },
   submitTalkText: {
     color: 'white',

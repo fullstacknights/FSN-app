@@ -11,6 +11,7 @@ const Form = props => {
     {label: 'Developer and Designer', value: 'both' },
     {label: 'Other', value: 'other' }
   ];
+  const buttonState = (props.talk.isLoading) ? styles.submitTalkDisabled : styles.submitTalk;
 
   return (
     <ScrollView style={[styles.container, styles.scrollView]}>
@@ -74,7 +75,7 @@ const Form = props => {
       </View>
       <View style={styles.spaceBottom}>
         <TouchableOpacity onPress={props.actions.handleSubmit.bind(null, props.talk)}>
-          <View style={styles.submitTalkButton}>
+          <View style={[styles.button, buttonState]}>
             <Text style={styles.submitTalkText}>Submit</Text>
           </View>
         </TouchableOpacity>

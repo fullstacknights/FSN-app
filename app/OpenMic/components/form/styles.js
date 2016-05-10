@@ -46,11 +46,16 @@ export default StyleSheet.create({
   spaceBottom: {
     marginBottom: 20
   },
-  openMicButton: {
-    backgroundColor: '#50E3C2',
+  button: {
     borderRadius: 3,
     marginBottom: 20,
     padding: 15
+  },
+  openMic: {
+    backgroundColor: '#50E3C2',
+  },
+  openMicDisabled: {
+    backgroundColor: 'rgba(80,227,194,0.90)'
   },
   openMicText: {
     color: 'white',
