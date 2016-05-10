@@ -71,6 +71,7 @@ export default StyleSheet.create({
     marginLeft: 20
   },
   talksTitle: {
+    fontFamily: 'Montserrat',
     paddingLeft: 15,
     paddingTop: 5,
     paddingBottom: 5,
