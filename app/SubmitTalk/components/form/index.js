@@ -40,16 +40,19 @@ class Form extends Component {
   }
 
   scrollTo(input) {
-    return () =>
+    return () => {
+      this.refs[input].focus();
       setTimeout(() => {
+        console.log(this.state.focusedInput);
+        console.log(input);
         if (this.state.focusedInput !== input) {
           this.refs[input].measure((ox, oy) => {
             this._scrollView.scrollTo({ x: 0, y: oy - 30, animation: true });
           });
-          this.refs[input].focus();
           this.setState({ focusedInput: input });
         }
       });
+    };
   }
   render() {
     const props = this.props;
@@ -68,7 +71,6 @@ class Form extends Component {
         ref={(sv) => this._scrollView = sv}
         style={[styles.container, styles.scrollView]}
         contentContainerStyle={scrollViewContent}
-        scrollEnabled={!this.state.keyboardShowing}
       >
         <View style={styles.logoWrapper}>
           <Image
