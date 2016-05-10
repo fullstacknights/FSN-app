@@ -15,6 +15,7 @@ class Information extends Component {
         tabBarActiveTextColor='#50E3C2'
         tabBarUnderlineColor='#50E3C2'
         tabBarInactiveTextColor='white'
+        style={{fontFamily: 'Montserrat'}}
       >
         <Info
           tabLabel='INFO'

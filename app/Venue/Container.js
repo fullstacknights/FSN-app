@@ -13,6 +13,7 @@ import Spinner from 'react-native-spinkit';
 import MapView from 'react-native-maps';
 import { PureRender } from '../components';
 import { Photos } from './components';
+import helpers from '../utils/styleHelpers';
 
 const styles = StyleSheet.create({
   locationButton: {
@@ -72,7 +73,7 @@ class Venue extends Component {
         </MapView>
         <TouchableOpacity onPress={this.handleGetLocation}>
           <View style={styles.locationButton}>
-            <Text style={styles.locationText}>Get Location</Text>
+            <Text style={[styles.locationText, helpers.montserratText]}>Get Location</Text>
           </View>
         </TouchableOpacity>
         {this.props.fetching && this.props.photos.length === 0 ?

@@ -1,11 +1,12 @@
 import React, { Component, View, Text } from 'react-native';
 
 import styles from './styles';
+import helpers from '../../../utils/styleHelpers';
 
 class Activity extends Component {
   renderDuration(duration) {
     if (duration) {
-      return <Text style={styles.lightGreyText}>{duration}</Text>;
+      return <Text style={[styles.lightGreyText, helpers.montserratText]}>{duration}</Text>;
     }
     return <View></View>;
   }
@@ -20,7 +21,7 @@ class Activity extends Component {
     return (
       <View style={styling}>
         <Text
-          style={[styles.darkBlueText, styles.activityTitle]}
+          style={[styles.darkBlueText, styles.activityTitle, helpers.montserratText]}
         >
           {this.props.title}
         </Text>

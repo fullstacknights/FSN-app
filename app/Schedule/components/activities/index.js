@@ -10,6 +10,7 @@ import Spinner from 'react-native-spinkit';
 import styles from './styles';
 import Activity from '../activity';
 import { PureRender, SectionHeader } from '../../../components';
+import helpers from '../../../utils/styleHelpers';
 
 class Activities extends Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class Activities extends Component {
       <View style={styles.submitTalkWrapper}>
         <TouchableOpacity onPress={this.handlePress('submit-talk')}>
           <View style={styles.submitTalkButton}>
-            <Text style={styles.submitTalkText}>Submit a Talk</Text>
+            <Text style={[styles.submitTalkText, helpers.montserratText]}>Submit a Talk</Text>
           </View>
         </TouchableOpacity>
       </View>

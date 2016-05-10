@@ -6,21 +6,23 @@ import React, {
 } from 'react-native';
 import Spinner from 'react-native-spinkit';
 import Accordion from 'react-native-collapsible/Accordion';
+
 import { PureRender } from '../../../components';
 import styles from './styles';
+import helpers from '../../../utils/styleHelpers';
 
 class Faq extends Component {
   _renderHeader = (section) => {
     return (
       <View style={styles.header}>
-        <Text style={styles.title}>{section.question}</Text>
+        <Text style={[styles.title, helpers.montserratText]}>{section.question}</Text>
       </View>
     );
   };
   _renderContent = (section) => {
     return (
       <View>
-        <Text style={styles.answer}>{section.answer}</Text>
+        <Text style={[styles.answer, helpers.montserratText]}>{section.answer}</Text>
       </View>
     );
   };

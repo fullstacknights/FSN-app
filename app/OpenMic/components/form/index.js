@@ -11,6 +11,7 @@ import Spinner from 'react-native-spinkit';
 
 import styles from './styles';
 import logo from '../../../assets/logo.png';
+import helpers from '../../../utils/styleHelpers';
 
 export default class Form extends Component {
   constructor(props) {
@@ -36,11 +37,11 @@ export default class Form extends Component {
             style={styles.logo}
             source={logo}/>
         </View>
-        <Text style={[styles.whiteText, styles.centerText, styles.spaceBottom]}>
+        <Text style={[styles.whiteText, styles.centerText, styles.spaceBottom, helpers.montserratText]}>
           Open Mics have a limited time of 5 minutes. Slides are not allowed in the presentation. You may anounce or speak of whatever you like.  Please be respectful.
         </Text>
         <View style={styles.spaceBottom}>
-          <Text style={[styles.whiteText, styles.boldText]}>
+          <Text style={[styles.whiteText, styles.boldText, helpers.montserratText]}>
             What is your name?
           </Text>
           <TextInput
@@ -54,7 +55,7 @@ export default class Form extends Component {
             />
         </View>
         <View style={styles.spaceBottom}>
-          <Text style={[styles.whiteText, styles.boldText]}>
+          <Text style={[styles.whiteText, styles.boldText, helpers.montserratText]}>
             What is the topic?
           </Text>
           <TextInput
@@ -67,7 +68,7 @@ export default class Form extends Component {
         <View style={styles.spaceBottom}>
           <TouchableOpacity disabled={this.props.openMic.isLoading} onPress={this.props.actions.handleSubmit.bind(null, this.props.openMic)}>
             <View style={[styles.button, buttonState]}>
-              <Text style={styles.openMicText}>Submit</Text>
+              <Text style={[styles.openMicText, helpers.montserratText]}>Submit</Text>
             </View>
           </TouchableOpacity>
         </View>

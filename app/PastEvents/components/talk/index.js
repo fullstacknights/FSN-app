@@ -7,8 +7,10 @@ import React, {
   Linking
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import styles from './styles';
 import { PureRender } from '../../../components';
+import helpers from '../../../utils/styleHelpers';
 
 class Talk extends Component {
   constructor(props) {
@@ -41,8 +43,8 @@ class Talk extends Component {
           </View>
         </TouchableOpacity>
         <View style={styles.infoWrap}>
-          <Text style={styles.title}>{this.props.title}</Text>
-          <Text style={styles.speaker}>{this.props.speaker}</Text>
+          <Text style={[styles.title, helpers.monserratText]}>{this.props.title}</Text>
+          <Text style={[styles.speaker, helpers.monserratText]}>{this.props.speaker}</Text>
         </View>
       </View>
     );

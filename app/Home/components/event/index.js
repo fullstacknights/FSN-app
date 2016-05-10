@@ -8,11 +8,12 @@ import React, {
 } from 'react-native';
 import Spinner from 'react-native-spinkit';
 import moment from 'moment';
+
 import { PureRender } from '../../../components';
 import styles from './styles';
 import condado from '../../../assets/condado.png';
 import logo from '../../../assets/logo.png';
-
+import helpers from '../../../utils/styleHelpers';
 
 class Event extends Component {
   constructor(props) {
@@ -43,18 +44,18 @@ class Event extends Component {
             <View style={styles.logoWrap}>
               <Image source={logo} style={styles.logo}/>
             </View>
-            <Text style={styles.eventDate}>{moment(this.props.event.date.iso).format('DD/MMM/YYYY')}</Text>
+            <Text style={[styles.eventDate, helpers.montserratText]}>{moment(this.props.event.date.iso).format('DD/MMM/YYYY')}</Text>
           </View>
         </Image>
-        <Text style={styles.talksTitle}>Talks</Text>
+        <Text style={[styles.talksTitle, helpers.montserratText]}>Talks</Text>
         <View style={styles.speakers}>
           {this.props.event.talks.map((talk, idx) => {
             return (
               <View key={idx} style={styles.speaker}>
                 <Image source={{ uri: talk.profileImg }} style={styles.speakerImg}/>
                 <View style={styles.talkInfo}>
-                  <Text style={styles.talkTitle}>{talk.title}</Text>
-                  <Text style={styles.speakerName}>{talk.author}</Text>
+                  <Text style={[styles.talkTitle, helpers.montserratText]}>{talk.title}</Text>
+                  <Text style={[styles.speakerName, helpers.montserratText]}>{talk.author}</Text>
                 </View>
               </View>
             );
@@ -63,7 +64,7 @@ class Event extends Component {
         <View style={styles.openMicWrapper}>
           <TouchableOpacity onPress={this.handlePress('open-mic')}>
             <View style={styles.openMicButton}>
-              <Text style={styles.openMicText}>Request Open Mic</Text>
+              <Text style={[styles.openMicText, helpers.montserratText]}>Request Open Mic</Text>
             </View>
           </TouchableOpacity>
         </View>

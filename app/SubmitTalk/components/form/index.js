@@ -13,6 +13,7 @@ import Radio from 'react-native-simple-radio-button';
 
 import styles from './styles';
 import logo from '../../../assets/logo.png';
+import helpers from '../../../utils/styleHelpers';
 
 class Form extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class Form extends Component {
     this.setState({ visibleHeight: newSize, keyboardShowing: true });
   }
 
+<<<<<<< HEAD
   keyboardWillHide (e) {
     this.setState({ visibleHeight: Dimensions.get('window').height, keyboardShowing: false });
   }
@@ -87,6 +89,7 @@ class Form extends Component {
           autoCorrect={false}
           onSubmitEditing={this.scrollTo('email')}
           onBlur={props.actions.handleAddName}
+
         />
         <View style={styles.spaceBottom}/>
         <Text style={[styles.whiteText, styles.boldText]}>
@@ -163,7 +166,7 @@ class Form extends Component {
         />
         <TouchableOpacity onPress={props.actions.handleSubmit.bind(null, props.talk)}>
           <View style={[styles.button, buttonState]}>
-            <Text style={styles.submitTalkText}>Submit</Text>
+            <Text style={[styles.submitTalkText, helpers.montserratText]}>Submit</Text>
           </View>
         </TouchableOpacity>
       </ScrollView>

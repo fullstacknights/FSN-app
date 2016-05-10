@@ -7,8 +7,10 @@ import React, {
   Clipboard
 } from 'react-native';
 import Spinner from 'react-native-spinkit';
+
 import { PureRender } from '../../../components';
 import styles from './styles';
+import helpers from '../../../utils/styleHelpers';
 
 class Info extends Component {
   handleCopyPassword = () => {
@@ -29,27 +31,27 @@ class Info extends Component {
     return (
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.section}>
-          <Text style={styles.title}>{this.props.faq[0].question}</Text>
-          <Text style={styles.answer}>{this.props.faq[0].answer}</Text>
+          <Text style={[styles.title, helpers.montserratText]}>{this.props.faq[0].question}</Text>
+          <Text style={[styles.answer, helpers.montserratText]}>{this.props.faq[0].answer}</Text>
         </View>
         <View style={styles.section}>
-          <Text style={styles.title}>Get Involved in the community</Text>
-          <Text style={styles.answer}>{this.props.slackUrl}</Text>
+          <Text style={[styles.title, helpers.montserratText]}>Get Involved in the community</Text>
+          <Text style={[styles.answer, helpers.montserratText]}>{this.props.slackUrl}</Text>
         </View>
         <View style={styles.section}>
-          <Text style={styles.title}>WiFi</Text>
-          <Text style={styles.wifi}>WIFI: {this.props.wifi.name}</Text>
-          <Text style={styles.wifi}>Password: {this.props.wifi.password}</Text>
+          <Text style={[styles.title, helpers.montserratText]}>WiFi</Text>
+          <Text style={[styles.wifi, helpers.montserratText]}>WIFI: {this.props.wifi.name}</Text>
+          <Text style={[styles.wifi, helpers.montserratText]}>Password: {this.props.wifi.password}</Text>
           <TouchableOpacity onPress={this.handleCopyPassword}>
             <View style={styles.copyPassword}>
-              <Text style={styles.copyPasswordText}>Copy Password</Text>
+              <Text style={[styles.copyPasswordText, helpers.montserratText]}>Copy Password</Text>
             </View>
           </TouchableOpacity>
         </View>
         <View>
-          <Text style={styles.title}>Code of Conduct</Text>
+          <Text style={[styles.title, helpers.montserratText]}>Code of Conduct</Text>
           {this.props.codeOfConduct.map((part, idx) => {
-            return <Text key={idx} style={styles.part}>{part}</Text>;
+            return <Text key={idx} style={[styles.part, helpers.montserratText]}>{part}</Text>;
           })}
         </View>
       </ScrollView>
