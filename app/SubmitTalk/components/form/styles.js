@@ -52,6 +52,7 @@ export default StyleSheet.create({
   },
   button: {
     borderRadius: 3,
+    marginTop: 18,
     marginBottom: 20,
     padding: 15
   },
