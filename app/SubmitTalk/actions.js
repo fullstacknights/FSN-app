@@ -25,8 +25,8 @@ export function handleAddImportance(event) {
   return ({type: actionTypes.ADD_IMPORTANCE, importance: event.nativeEvent.text});
 }
 
-export function handleAddQuestionsComments(event) {
-  return ({type: actionTypes.ADD_QUESTIONS_COMMENTS, questionsComments: event.nativeEvent.text});
+export function handleAddQuestionsComments(questionsComments) {
+  return ({type: actionTypes.ADD_QUESTIONS_COMMENTS, questionsComments});
 }
 
 export function handleIsLoading(isLoading) {

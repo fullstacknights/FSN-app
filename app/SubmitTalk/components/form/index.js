@@ -1,5 +1,6 @@
 import React, { Image, ScrollView, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import Radio from 'react-native-simple-radio-button';
+import SmartScrollView from 'react-native-smart-scroll-view';
 
 import styles from './styles';
 import logo from '../../../assets/logo.png';
@@ -14,7 +15,7 @@ const Form = props => {
   const buttonState = (props.talk.isLoading) ? styles.submitTalkDisabled : styles.submitTalk;
 
   return (
-    <ScrollView style={[styles.container, styles.scrollView]}>
+    <SmartScrollView scrollContainerStyle={[styles.container, styles.scrollView]} scrollPadding={15}>
       <View style={styles.logoWrapper}>
         <Image
           style={styles.logo}
@@ -27,19 +28,45 @@ const Form = props => {
         <Text style={[styles.whiteText, styles.boldText]}>
           What is your name?
         </Text>
-        <TextInput style={styles.input} autoFocus={true} autoCapitalize="words" autoCorrect={false} onEndEditing={props.actions.handleAddName} />
+        <TextInput
+          style={styles.input}
+          autoFocus={true}
+          autoCapitalize="words"
+          autoCorrect={false}
+          onBlur={props.actions.handleAddName}
+          smartScrollOptions={{
+            moveToNext: true,
+            type: 'text'
+          }}
+          />
       </View>
       <View style={styles.spaceBottom}>
         <Text style={[styles.whiteText, styles.boldText]}>
           What is your email address?
         </Text>
-        <TextInput style={styles.input} keyboardType="email-address" autoCapitalize="none" autoCorrect={false} onEndEditing={props.actions.handleAddEmail} />
+        <TextInput
+          style={styles.input}
+          keyboardType="email-address"
+          autoCapitalize="none"
+          autoCorrect={false}
+          onBlur={props.actions.handleAddEmail}
+          smartScrollOptions={{
+            moveToNext: true,
+            type: 'text'
+          }} />
       </View>
       <View style={styles.spaceBottom}>
         <Text style={[styles.whiteText, styles.boldText]}>
           Link to your online profile (e.g. @gcollazo)
         </Text>
-        <TextInput style={styles.input}  autoCapitalize="words" onEndEditing={props.actions.handleAddOnlineProfile}/>
+        <TextInput
+          style={styles.input}
+          autoCapitalize="words"
+          onBlur={props.actions.handleAddOnlineProfile}
+          smartScrollOptions={{
+            moveToNext: true,
+            type: 'text'
+          }} />
       </View>
       <View style={styles.spaceBottom}>
         <Text style={[styles.whiteText, styles.boldText]}>
@@ -58,19 +85,40 @@ const Form = props => {
           <Text style={[styles.whiteText, styles.boldText]}>
             What is your proposed topic?
           </Text>
-          <TextInput multiline={true} style={[styles.input, styles.textarea]} onEndEditing={props.actions.handleAddTopic}/>
+          <TextInput
+            multiline={true}
+            style={[styles.input, styles.textarea]}
+            onBlur={props.actions.handleAddTopic}
+            smartScrollOptions={{
+              moveToNext: true,
+              type: 'text'
+            }} />
         </View>
         <View style={styles.spaceBottom}>
           <Text style={[styles.whiteText, styles.boldText]}>
             Why should this be presented in FSN?
           </Text>
-          <TextInput multiline={true} style={[styles.input, styles.textarea]} onEndEditing={props.actions.handleAddImportance} />
+          <TextInput
+            multiline={true}
+            style={[styles.input, styles.textarea]}
+            onBlur={props.actions.handleAddImportance}
+            smartScrollOptions={{
+              moveToNext: true,
+              type: 'text'
+            }} />
         </View>
         <View>
           <Text style={[styles.whiteText, styles.boldText]}>
             Your questions or comments
           </Text>
-          <TextInput multiline={true} style={[styles.input, styles.textarea]} onEndEditing={props.actions.handleAddQuestionsComments}/>
+          <TextInput
+            multiline={true}
+            style={[styles.input, styles.textarea]}
+            onChangeText={props.actions.handleAddQuestionsComments}
+            smartScrollOptions={{
+              moveToNext: true,
+              type: 'text'
+            }} />
         </View>
       </View>
       <View style={styles.spaceBottom}>
@@ -80,7 +128,7 @@ const Form = props => {
           </View>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    </SmartScrollView>
   )
 }
 
