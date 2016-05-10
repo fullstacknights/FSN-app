@@ -1,7 +1,7 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   montserratText: {
-    fontFamily: 'Montserrat'
+    fontFamily: (Platform.OS === 'ios') ? 'Montserrat' : 'montserrat'
   }
 })
