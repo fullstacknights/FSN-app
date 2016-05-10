@@ -2,12 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
     padding: 12
   },
   scrollView: {
-    backgroundColor: '#233140',
-    height: 300
+    backgroundColor: '#233140'
   },
   logoWrapper: {
     alignItems: 'center',
@@ -57,7 +55,7 @@ export default StyleSheet.create({
     padding: 15
   },
   submitTalk: {
-    backgroundColor: '#50E3C2',
+    backgroundColor: '#50E3C2'
   },
   submitTalkDisabled: {
     backgroundColor: 'rgba(80,227,194,0.90)'

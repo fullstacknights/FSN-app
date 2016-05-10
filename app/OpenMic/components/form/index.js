@@ -8,19 +8,30 @@ import React, {
   TouchableOpacity
 } from 'react-native';
 import Spinner from 'react-native-spinkit';
-import SmartScrollView from 'react-native-smart-scroll-view';
 
 import styles from './styles';
 import logo from '../../../assets/logo.png';
 import helpers from '../../../utils/styleHelpers';
 
 export default class Form extends Component {
+  constructor(props) {
+    super(props);
+    this.scrollTo = this.scrollTo.bind(this);
+  }
+  scrollTo(input) {
+    setTimeout(() => {
+      this.refs[input].measure((ox, oy, width, height, px, py) => {
+        this._scrollView.scrollTo({ x: ox, y: oy, animation: true });
+      });
+    })
+  }
   renderForm() {
-    console.log(this.props);
     const buttonState = (this.props.openMic.isLoading) ? styles.openMicDisabled : styles.openMic;
-
     return (
-      <SmartScrollView scrollContainerStyle={[styles.container, styles.scrollView]} scrollPadding={15}>
+      <ScrollView
+        ref={(sv) => this._scrollView = sv}
+        contentContainerStyle={[styles.container, styles.scrollView]}
+      >
         <View style={styles.logoWrapper}>
           <Image
             style={styles.logo}
@@ -34,26 +45,25 @@ export default class Form extends Component {
             What is your name?
           </Text>
           <TextInput
+            ref='name'
             style={styles.input}
             autoCapitalize="words"
             autoFocus={true}
             autoCorrect={false}
+            onFocus={this.scrollTo('name')}
             onBlur={this.props.actions.handleAddName}
-            smartScrollOptions={{
-              moveToNext: true,
-              type: 'text'
-            }} />
+            />
         </View>
         <View style={styles.spaceBottom}>
           <Text style={[styles.whiteText, styles.boldText, helpers.montserratText]}>
             What is the topic?
           </Text>
           <TextInput
+            ref='topic'
             style={styles.input}
+            onFocus={this.scrollTo('topic')}
             onChangeText={this.props.actions.handleAddTopic}
-            smartScrollOptions={{
-              type: 'text'
-            }} />
+          />
         </View>
         <View style={styles.spaceBottom}>
           <TouchableOpacity disabled={this.props.openMic.isLoading} onPress={this.props.actions.handleSubmit.bind(null, this.props.openMic)}>
@@ -62,7 +72,7 @@ export default class Form extends Component {
             </View>
           </TouchableOpacity>
         </View>
-      </SmartScrollView>
+      </ScrollView>
     );
   }
 
@@ -76,7 +86,7 @@ export default class Form extends Component {
             size={80}
           />
         </View>
-      )
+      );
     }
 
     return this.renderForm();
