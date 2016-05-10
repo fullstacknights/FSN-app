@@ -8,6 +8,7 @@ import React, {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PureRender from '../pure-render';
 import styles from './styles';
+import helpers from '../../utils/styleHelpers';
 
 class Header extends Component {
   render() {
@@ -26,7 +27,7 @@ class Header extends Component {
                 size={25}
               />
             </TouchableOpacity>
-            <Text style={styles.text}>{this.props.headerText}</Text>
+            <Text style={[styles.text, helpers.montserratText]}>{this.props.headerText}</Text>
           </View>
         </View>
       </View>

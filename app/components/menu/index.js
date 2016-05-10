@@ -7,10 +7,12 @@ import React, {
   TouchableOpacity,
   Linking
 } from 'react-native';
+
 import PureRender from '../pure-render';
 import styles from './styles';
 import banner from '../../assets/banner.png';
 import logo from '../../assets/logo.png';
+import helpers from '../../utils/styleHelpers';
 
 class Menu extends Component {
   constructor(props) {
@@ -42,39 +44,39 @@ class Menu extends Component {
             source={logo}
           />
           <Text
-            style={[styles.bannerText, styles.headerText]}
+            style={[styles.bannerText, styles.headerText, helpers.montserratText]}
           >
             Full Stack Nights
           </Text>
-          <Text style={styles.bannerText}>Every two months</Text>
+          <Text style={[styles.bannerText, helpers.montserratText]}>Every two months</Text>
         </View>
         <View style={styles.navAndTickets}>
           <View style={styles.nav}>
             <TouchableOpacity onPress={this.handlePress('home')}>
-              <Text style={styles.navLink}>Home</Text>
+              <Text style={[styles.navLink, helpers.montserratText]}>Home</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this.handlePress('schedule')}>
-              <Text style={styles.navLink}>Schedule</Text>
+              <Text style={[styles.navLink, helpers.montserratText]}>Schedule</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this.handlePress('venue')}>
-              <Text style={styles.navLink}>Venue</Text>
+              <Text style={[styles.navLink, helpers.montserratText]}>Venue</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this.handlePress('past-events')}>
-              <Text style={styles.navLink}>Past Events</Text>
+              <Text style={[styles.navLink, helpers.montserratText]}>Past Events</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this.handlePress('information')}>
-              <Text style={styles.navLink}>Information</Text>
+              <Text style={[styles.navLink, helpers.montserratText]}>Information</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this.handlePress('submit-talk')}>
-              <Text style={styles.navLink}>Submit Talk</Text>
+              <Text style={[styles.navLink, helpers.montserratText]}>Submit Talk</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this.handlePress('open-mic')}>
-              <Text style={styles.navLink}>Request Open Mic</Text>
+              <Text style={[styles.navLink, helpers.montserratText]}>Request Open Mic</Text>
             </TouchableOpacity>
           </View>
           <TouchableOpacity onPress={this.handleBuyTicketsPressed}>
             <View style={styles.ticketsButton}>
-              <Text style={styles.ticketsText}>Buy Tickets</Text>
+              <Text style={[styles.ticketsText, helpers.montserratText]}>Buy Tickets</Text>
             </View>
           </TouchableOpacity>
         </View>

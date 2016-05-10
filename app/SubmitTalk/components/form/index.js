@@ -4,6 +4,7 @@ import SmartScrollView from 'react-native-smart-scroll-view';
 
 import styles from './styles';
 import logo from '../../../assets/logo.png';
+import helpers from '../../../utils/styleHelpers';
 
 const Form = props => {
   const radio_props = [
@@ -21,11 +22,11 @@ const Form = props => {
           style={styles.logo}
           source={logo}/>
       </View>
-      <Text style={[styles.whiteText, styles.centerText, styles.spaceBottom]}>
+      <Text style={[styles.whiteText, styles.centerText, styles.spaceBottom, helpers.montserratText]}>
         All talks must be submitted here to be considered for review for Fullstack Nights. Once the talk is submitted the FSN team will review the topic, content, and visuals to see if its up to what the team considers to be FSN quality.
       </Text>
       <View style={styles.spaceBottom}>
-        <Text style={[styles.whiteText, styles.boldText]}>
+        <Text style={[styles.whiteText, styles.boldText, helpers.montserratText]}>
           What is your name?
         </Text>
         <TextInput
@@ -41,7 +42,7 @@ const Form = props => {
           />
       </View>
       <View style={styles.spaceBottom}>
-        <Text style={[styles.whiteText, styles.boldText]}>
+        <Text style={[styles.whiteText, styles.boldText, helpers.montserratText]}>
           What is your email address?
         </Text>
         <TextInput
@@ -56,7 +57,7 @@ const Form = props => {
           }} />
       </View>
       <View style={styles.spaceBottom}>
-        <Text style={[styles.whiteText, styles.boldText]}>
+        <Text style={[styles.whiteText, styles.boldText, helpers.montserratText]}>
           Link to your online profile (e.g. @gcollazo)
         </Text>
         <TextInput
@@ -69,7 +70,7 @@ const Form = props => {
           }} />
       </View>
       <View style={styles.spaceBottom}>
-        <Text style={[styles.whiteText, styles.boldText]}>
+        <Text style={[styles.whiteText, styles.boldText, helpers.montserratText]}>
           I am ...
         </Text>
         <View style={styles.radio}>
@@ -79,10 +80,10 @@ const Form = props => {
             buttonColor={'#50C900'}
             labelColor={'white'}
             onPress={props.actions.handleAddProfession}
-            style={styles.radioSpacing} />
+            style={[styles.radioSpacing, helpers.montserratText]} />
         </View>
         <View style={styles.spaceBottom}>
-          <Text style={[styles.whiteText, styles.boldText]}>
+          <Text style={[styles.whiteText, styles.boldText, helpers.montserratText]}>
             What is your proposed topic?
           </Text>
           <TextInput
@@ -95,7 +96,7 @@ const Form = props => {
             }} />
         </View>
         <View style={styles.spaceBottom}>
-          <Text style={[styles.whiteText, styles.boldText]}>
+          <Text style={[styles.whiteText, styles.boldText, helpers.montserratText]}>
             Why should this be presented in FSN?
           </Text>
           <TextInput
@@ -108,7 +109,7 @@ const Form = props => {
             }} />
         </View>
         <View>
-          <Text style={[styles.whiteText, styles.boldText]}>
+          <Text style={[styles.whiteText, styles.boldText, helpers.montserratText]}>
             Your questions or comments
           </Text>
           <TextInput
@@ -124,7 +125,7 @@ const Form = props => {
       <View style={styles.spaceBottom}>
         <TouchableOpacity onPress={props.actions.handleSubmit.bind(null, props.talk)}>
           <View style={[styles.button, buttonState]}>
-            <Text style={styles.submitTalkText}>Submit</Text>
+            <Text style={[styles.submitTalkText, helpers.montserratText]}>Submit</Text>
           </View>
         </TouchableOpacity>
       </View>

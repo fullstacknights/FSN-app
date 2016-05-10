@@ -6,8 +6,10 @@ import React, {
   Image
 } from 'react-native';
 import Spinner from 'react-native-spinkit';
+
 import { PureRender } from '../../../components';
 import styles from './styles';
+import helpers from '../../../utils/styleHelpers';
 
 class Team extends Component {
   render() {
@@ -34,8 +36,8 @@ class Team extends Component {
                     source={{ uri: member.image }}
                   />
                 </View>
-                <Text style={styles.name}>{member.name}</Text>
-                <Text style={styles.name}>{member.twitter}</Text>
+                <Text style={[styles.name, helpers.montserratText]}>{member.name}</Text>
+                <Text style={[styles.name, helpers.montserratText]}>{member.twitter}</Text>
               </View>
             );
           })}

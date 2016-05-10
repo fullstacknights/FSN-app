@@ -21,7 +21,7 @@ class Activity extends Component {
     return (
       <View style={styling}>
         <Text
-          style={[styles.darkBlueText, styles.activityTitle, helpers.montserratText, helpers.bolder]}
+          style={[styles.darkBlueText, styles.activityTitle, helpers.montserratText]}
         >
           {this.props.title}
         </Text>
