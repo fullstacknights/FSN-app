@@ -5,12 +5,13 @@ export default StyleSheet.create({
     padding: 12
   },
   scrollView: {
-    backgroundColor: '#233140'
+    backgroundColor: '#233140',
+    flex: 1
   },
   logoWrapper: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 15,
+    marginTop: 8,
     marginBottom: 15
   },
   logo: {
