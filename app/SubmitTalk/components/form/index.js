@@ -34,7 +34,6 @@ class Form extends Component {
     this.setState({ visibleHeight: newSize, keyboardShowing: true });
   }
 
-<<<<<<< HEAD
   keyboardWillHide (e) {
     this.setState({ visibleHeight: Dimensions.get('window').height, keyboardShowing: false });
   }
