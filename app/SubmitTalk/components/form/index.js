@@ -7,7 +7,8 @@ import React, {
   TextInput,
   TouchableOpacity,
   DeviceEventEmitter,
-  Dimensions
+  Dimensions,
+  Platform
 } from 'react-native';
 import Radio from 'react-native-simple-radio-button';
 
@@ -26,8 +27,8 @@ class Form extends Component {
     this.scrollTo = this.scrollTo.bind(this);
   }
   componentWillMount() {
-    DeviceEventEmitter.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
-    DeviceEventEmitter.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
+    DeviceEventEmitter.addListener(Platform.OS == 'IOS' ? 'keyboardWillShow' : 'keyboardDidShow', this.keyboardWillShow.bind(this))
+    DeviceEventEmitter.addListener(Platform.OS == 'IOS' ? 'keyboardWillHide' : 'keyboardDidHide', this.keyboardWillHide.bind(this))
   }
   keyboardWillShow (e) {
     const newSize = Dimensions.get('window').height - e.endCoordinates.height;
