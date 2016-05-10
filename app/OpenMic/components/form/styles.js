@@ -1,4 +1,4 @@
-import React, { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   loader: {
@@ -7,7 +7,6 @@ export default StyleSheet.create({
     justifyContent: 'center'
   },
   container: {
-    flex: 1,
     padding: 12
   },
   scrollView: {
@@ -52,7 +51,7 @@ export default StyleSheet.create({
     padding: 15
   },
   openMic: {
-    backgroundColor: '#50E3C2',
+    backgroundColor: '#50E3C2'
   },
   openMicDisabled: {
     backgroundColor: 'rgba(80,227,194,0.90)'
