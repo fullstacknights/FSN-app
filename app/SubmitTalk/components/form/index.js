@@ -84,6 +84,7 @@ class Form extends Component {
           What is your name?
         </Text>
         <TextInput
+          defaultValue={props.talk.name}
           ref='name'
           onFocus={this.scrollTo('name')}
           style={styles.input}
@@ -91,13 +92,13 @@ class Form extends Component {
           autoCorrect={false}
           onSubmitEditing={this.scrollTo('email')}
           onBlur={props.actions.handleAddName}
-
         />
         <View style={styles.spaceBottom}/>
         <Text style={[styles.whiteText, styles.boldText]}>
           What is your email address?
         </Text>
         <TextInput
+          defaultValue={props.talk.email}
           ref='email'
           onFocus={this.scrollTo('email')}
           style={styles.input}
@@ -112,6 +113,7 @@ class Form extends Component {
           Link to your online profile (e.g. @gcollazo)
         </Text>
         <TextInput
+          defaultValue={props.talk.onlineProfile}
           ref='profile'
           onFocus={this.scrollTo('profile')}
           style={styles.input}
@@ -138,6 +140,7 @@ class Form extends Component {
           What is your proposed topic?
         </Text>
         <TextInput
+          defaultValue={props.talk.topic}
           ref='topic'
           onFocus={this.scrollTo('topic')}
           multiline={true}
@@ -149,6 +152,7 @@ class Form extends Component {
           Why should this be presented in FSN?
         </Text>
         <TextInput
+          defaultValue={props.talk.importance}
           ref='presented'
           onFocus={this.scrollTo('presented')}
           multiline={true}
@@ -160,6 +164,7 @@ class Form extends Component {
           Your questions or comments
         </Text>
         <TextInput
+          defaultValue={props.talk.questionsComments}
           ref='questions'
           onFocus={this.scrollTo('questions')}
           multiline={true}

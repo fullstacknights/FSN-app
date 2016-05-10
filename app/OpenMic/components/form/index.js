@@ -45,6 +45,7 @@ export default class Form extends Component {
             What is your name?
           </Text>
           <TextInput
+            defaultValue={this.props.openMic.name}
             ref='name'
             style={styles.input}
             autoCapitalize="words"
@@ -59,6 +60,7 @@ export default class Form extends Component {
             What is the topic?
           </Text>
           <TextInput
+            defaultValue={this.props.openMic.topic}
             ref='topic'
             style={styles.input}
             onFocus={this.scrollTo('topic')}
