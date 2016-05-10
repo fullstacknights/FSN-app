@@ -5,8 +5,8 @@ export function handleAddName(event) {
   return ({type: actionTypes.ADD_NAME, name: event.nativeEvent.text});
 }
 
-export function handleAddTopic(event) {
-  return ({type: actionTypes.ADD_TOPIC, topic: event.nativeEvent.text});
+export function handleAddTopic(topic) {
+  return ({type: actionTypes.ADD_TOPIC, topic});
 }
 
 export function handleIsLoading(isLoading) {

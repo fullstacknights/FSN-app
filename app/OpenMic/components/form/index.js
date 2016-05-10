@@ -8,16 +8,18 @@ import React, {
   TouchableOpacity
 } from 'react-native';
 import Spinner from 'react-native-spinkit';
+import SmartScrollView from 'react-native-smart-scroll-view';
 
 import styles from './styles';
 import logo from '../../../assets/logo.png';
 
 export default class Form extends Component {
   renderForm() {
+    console.log(this.props);
     const buttonState = (this.props.openMic.isLoading) ? styles.openMicDisabled : styles.openMic;
 
     return (
-      <ScrollView style={[styles.container, styles.scrollView]}>
+      <SmartScrollView scrollContainerStyle={[styles.container, styles.scrollView]} scrollPadding={15}>
         <View style={styles.logoWrapper}>
           <Image
             style={styles.logo}
@@ -30,22 +32,36 @@ export default class Form extends Component {
           <Text style={[styles.whiteText, styles.boldText]}>
             What is your name?
           </Text>
-          <TextInput style={styles.input} autoCapitalize="words" autoFocus={true} autoCorrect={false} onEndEditing={this.props.actions.handleAddName} />
+          <TextInput
+            style={styles.input}
+            autoCapitalize="words"
+            autoFocus={true}
+            autoCorrect={false}
+            onBlur={this.props.actions.handleAddName}
+            smartScrollOptions={{
+              moveToNext: true,
+              type: 'text'
+            }} />
         </View>
         <View style={styles.spaceBottom}>
           <Text style={[styles.whiteText, styles.boldText]}>
             What is the topic?
           </Text>
-          <TextInput style={styles.input} onEndEditing={this.props.actions.handleAddTopic} />
+          <TextInput
+            style={styles.input}
+            onChangeText={this.props.actions.handleAddTopic}
+            smartScrollOptions={{
+              type: 'text'
+            }} />
         </View>
         <View style={styles.spaceBottom}>
-          <TouchableOpacity disabled={true} onPress={this.props.actions.handleSubmit.bind(null, this.props.openMic)}>
+          <TouchableOpacity disabled={this.props.openMic.isLoading} onPress={this.props.actions.handleSubmit.bind(null, this.props.openMic)}>
             <View style={[styles.button, buttonState]}>
               <Text style={styles.openMicText}>Submit</Text>
             </View>
           </TouchableOpacity>
         </View>
-      </ScrollView>
+      </SmartScrollView>
     );
   }
 
