@@ -1,5 +1,6 @@
 import { NetInfo } from 'react-native';
 import config from '../config';
+import axios from 'axios';
 
 const headers = {
   'Content-Type': 'application/json',
@@ -10,22 +11,33 @@ export default (dispatch, action) => {
   NetInfo.isConnected.fetch().then(isConnected => {
     if (isConnected) {
       let data = [];
-      const where = 'where={"past": true}&order=-date';
-      fetch(`${config.apiUrl}/classes/Event?${where}`, {
-        headers: headers
+      axios.get(`${config.apiUrl}/classes/Event`, {
+        headers: headers,
+        params: {
+          where: {
+            past: true
+          },
+          order: '-date'
+        }
       })
-      .then(res => res.json())
       .then(res => {
-        res.results.forEach(event => {
-          const talkWhere = `where={"event": {"__type": "Pointer", "className": "Event", "objectId": "${event.objectId}"}}`;
-          fetch(`${config.apiUrl}/classes/Talk?${talkWhere}`, {
-            headers: headers
+        res.data.results.forEach(event => {
+          axios.get(`${config.apiUrl}/classes/Talk`, {
+            headers: headers,
+            params: {
+              where: {
+                event: {
+                  __type: 'Pointer',
+                  className: 'Event',
+                  objectId: event.objectId
+                }
+              }
+            }
           })
-          .then(res => res.json())
           .then(res => {
             data = data.concat([{
               event,
-              talks: res.results
+              talks: res.data.results
             }]);
             dispatch(action(data));
           });
