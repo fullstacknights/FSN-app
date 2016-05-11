@@ -6,3 +6,4 @@ export const ADD_TOPIC = 'ADD_TOPIC';
 export const ADD_IMPORTANCE = 'ADD_IMPORTANCE';
 export const ADD_QUESTIONS_COMMENTS = 'ADD_QUESTIONS_COMMENTS';
 export const IS_LOADING = 'IS_LOADING';
+export const CLEAR_STATE = 'CLEAR_STATE';

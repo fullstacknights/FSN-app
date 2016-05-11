@@ -6,6 +6,8 @@ import ScrollableTabView from 'react-native-scrollable-tab-view';
 import { PureRender } from '../components';
 import { Info, Team, Faq } from './components';
 
+import helpers from '../utils/styleHelpers';
+
 class Information extends Component {
   render() {
     return (
@@ -15,7 +17,7 @@ class Information extends Component {
         tabBarActiveTextColor='#50E3C2'
         tabBarUnderlineColor='#50E3C2'
         tabBarInactiveTextColor='white'
-        style={{fontFamily: 'Montserrat'}}
+        style={helpers.montserratText}
       >
         <Info
           tabLabel='INFO'

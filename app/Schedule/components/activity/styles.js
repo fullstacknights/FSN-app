@@ -5,7 +5,9 @@ export default StyleSheet.create({
     color: '#233140'
   },
   lightGreyText: {
-    color: '#9B9B9B'
+    color: '#9B9B9B',
+    fontWeight: '400',
+    fontSize: 12
   },
   activityWrapper: {
     paddingLeft: 8,

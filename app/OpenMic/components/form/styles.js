@@ -11,12 +11,12 @@ export default StyleSheet.create({
   },
   scrollView: {
     backgroundColor: '#233140',
-    height: 300
+    flex: 1
   },
   logoWrapper: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 15,
+    marginTop: 8,
     marginBottom: 15
   },
   logo: {

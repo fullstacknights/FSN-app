@@ -29,6 +29,8 @@ export default function openMic(state = initialState, action) {
       return (Object.assign({}, state, {questionsComments: action.questionsComments}));
     case actionTypes.IS_LOADING:
       return (Object.assign({}, state, {isLoading: action.isLoading}));
+    case actionTypes.CLEAR_STATE:
+      return (Object.assign({}, state, initialState));
     default:
       return (state);
   }
