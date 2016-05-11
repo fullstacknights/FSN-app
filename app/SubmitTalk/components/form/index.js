@@ -43,8 +43,6 @@ class Form extends Component {
     return () => {
       this.refs[input].focus();
       setTimeout(() => {
-        console.log(this.state.focusedInput);
-        console.log(input);
         if (this.state.focusedInput !== input) {
           this.refs[input].measure((ox, oy) => {
             this._scrollView.scrollTo({ x: 0, y: oy - 30, animation: true });
