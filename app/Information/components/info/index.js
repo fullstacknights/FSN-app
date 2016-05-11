@@ -4,7 +4,8 @@ import React, {
   View,
   Text,
   TouchableOpacity,
-  Clipboard
+  Clipboard,
+  Linking
 } from 'react-native';
 import Spinner from 'react-native-spinkit';
 
@@ -15,6 +16,11 @@ import helpers from '../../../utils/styleHelpers';
 class Info extends Component {
   handleCopyPassword = () => {
     Clipboard.setString(this.props.wifi.password);
+  };
+  handleSlackUrl = () => {
+    if (this.props.slackUrl) {
+      Linking.openURL(this.props.slackUrl);
+    }
   };
   render() {
     if (this.props.fetching && this.props.faq.length === 0) {
@@ -36,7 +42,9 @@ class Info extends Component {
         </View>
         <View style={styles.section}>
           <Text style={[styles.title, helpers.montserratText]}>Get Involved in the community</Text>
-          <Text style={[styles.answer, helpers.montserratText]}>{this.props.slackUrl}</Text>
+          <TouchableOpacity onPress={this.handleSlackUrl}>
+            <Text style={[styles.answer, helpers.montserratText]}>{this.props.slackUrl}</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.section}>
           <Text style={[styles.title, helpers.montserratText]}>WiFi</Text>
