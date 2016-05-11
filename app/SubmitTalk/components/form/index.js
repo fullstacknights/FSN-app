@@ -15,7 +15,7 @@ import Radio from 'react-native-simple-radio-button';
 import styles from './styles';
 import logo from '../../../assets/logo.png';
 import helpers from '../../../utils/styleHelpers';
-import Alert from '../../../Alert/components/alert/index';
+import Loader from '../../../components/loader/index';
 
 class Form extends Component {
   constructor(props) {
@@ -44,8 +44,6 @@ class Form extends Component {
     return () => {
       this.refs[input].focus();
       setTimeout(() => {
-        console.log(this.state.focusedInput);
-        console.log(input);
         if (this.state.focusedInput !== input) {
           this.refs[input].measure((ox, oy) => {
             this._scrollView.scrollTo({ x: 0, y: oy - 30, animation: true });
@@ -56,24 +54,15 @@ class Form extends Component {
     };
   }
 
-  render() {
-    if (this.props.alert.display) {
-      return (
-        <Alert {...this.props.alert} actions={this.props.alertActions} />
-      );
-    }
-
-    const props = this.props;
+  renderForm(props, scrollViewContent) {
+    const buttonState = (props.talk.isLoading) ? styles.submitTalkDisabled : styles.submitTalk;
     const radio_props = [
       {label: 'Developer', value: 'developer' },
       {label: 'Designer', value: 'designer' },
       {label: 'Developer and Designer', value: 'both' },
       {label: 'Other', value: 'other' }
     ];
-    const buttonState = (props.talk.isLoading) ? styles.submitTalkDisabled : styles.submitTalk;
-    const scrollViewContent = {
-      paddingBottom: this.state.keyboardShowing ? this.state.visibleHeight - 150 : 0
-    };
+
     return (
       <ScrollView
         ref={(sv) => this._scrollView = sv}
@@ -186,6 +175,20 @@ class Form extends Component {
         </TouchableOpacity>
       </ScrollView>
     );
+  }
+
+  render() {
+    const props = this.props;
+
+    if (props.talk.isLoading) {
+      return (<Loader />);
+    }
+
+    const scrollViewContent = {
+      paddingBottom: this.state.keyboardShowing ? this.state.visibleHeight - 150 : 0
+    };
+
+    return (this.renderForm(props, scrollViewContent));
   }
 }
 
