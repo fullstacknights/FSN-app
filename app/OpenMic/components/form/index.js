@@ -53,7 +53,7 @@ export default class Form extends Component {
             autoCorrect={false}
             onFocus={this.scrollTo('name')}
             onBlur={this.props.actions.handleAddName}
-            />
+          />
         </View>
         <View style={styles.spaceBottom}>
           <Text style={[styles.whiteText, styles.boldText, helpers.montserratText]}>

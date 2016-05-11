@@ -8,13 +8,13 @@ const initialState = {
 
 export default function openMic(state = initialState, action) {
   switch (action.type) {
-    case actionTypes.ADD_NAME:
+    case actionTypes.OPEN_MIC_NAME:
       return (Object.assign({}, state, {name: action.name}));
-    case actionTypes.ADD_TOPIC:
+    case actionTypes.OPEN_MIC_TOPIC:
       return (Object.assign({}, state, {topic: action.topic}));
-    case actionTypes.IS_LOADING:
+    case actionTypes.OPEN_MIC_IS_LOADING:
       return (Object.assign({}, state, {isLoading: action.isLoading}));
-    case actionTypes.CLEAR_STATE:
+    case actionTypes.CLEAR_OPEN_MIC:
       return (Object.assign({}, state, initialState));
     default:
       return (state);

@@ -1,20 +1,21 @@
 import * as actionTypes from './actionTypes';
 import submit from '../api/postData';
+import { handleDisplayAlert } from '../Alert/actions';
 
 export function handleAddName(event) {
-  return ({type: actionTypes.ADD_NAME, name: event.nativeEvent.text});
+  return ({type: actionTypes.OPEN_MIC_NAME, name: event.nativeEvent.text});
 }
 
 export function handleAddTopic(topic) {
-  return ({type: actionTypes.ADD_TOPIC, topic});
+  return ({type: actionTypes.OPEN_MIC_TOPIC, topic});
 }
 
 export function handleIsLoading(isLoading) {
-  return ({type: actionTypes.IS_LOADING, isLoading});
+  return ({type: actionTypes.OPEN_MIC_IS_LOADING, isLoading});
 }
 
 export function handleClearState() {
-  return ({type: actionTypes.CLEAR_STATE});
+  return ({type: actionTypes.CLEAR_OPEN_MIC});
 }
 
 export function handleSubmit(data) {
@@ -22,8 +23,15 @@ export function handleSubmit(data) {
     dispatch(handleIsLoading(true));
     submit(data, 'classes/OpenMic')
       .then(res => {
+        const alert = {
+          style: 'success',
+          messageLine1: 'Thank you for requesting a space in the open mic section!',
+          messageLine2: '',
+          header: 'Success!'
+        };
+
+        dispatch(handleDisplayAlert(alert));
         dispatch(handleClearState());
-        // TODO: Display a success message
       });
   });
 }
