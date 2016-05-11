@@ -4,6 +4,7 @@ import pastEvents from './PastEvents/reducer';
 import submitTalk from './SubmitTalk/reducer';
 import openMic from './OpenMic/reducer';
 import home from './Home/reducer';
+import alert from './Alert/reducer';
 
 export {
   staticData,
@@ -11,5 +12,6 @@ export {
   pastEvents,
   submitTalk,
   openMic,
-  home
+  home,
+  alert
 };
