@@ -6,9 +6,16 @@ import { PureRender } from '../components';
 import Form from './components/form/index';
 import * as TalkActions from './actions';
 import * as AlertActions from '../Alert/actions';
+import Alert from '../Alert/components/alert/index';
 
 class SubmitTalk extends Component {
   render() {
+    if (this.props.alert.display) {
+      return (
+        <Alert {...this.props.alert} actions={this.props.alertActions} />
+      );
+    }
+
     return (
       <Form
         talk={this.props.submitTalk}
