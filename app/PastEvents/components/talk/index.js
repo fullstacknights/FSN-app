@@ -23,8 +23,10 @@ class Talk extends Component {
   }
 
   render() {
+    const talkStyle = (this.props.length === this.props.index) ? styles.container : [styles.container, styles.borderBottom];
+
     return (
-      <View style={styles.container}>
+      <View style={talkStyle}>
         <TouchableOpacity onPress={this.handleVideoPress}>
           <View>
             <View style={styles.video}/>
