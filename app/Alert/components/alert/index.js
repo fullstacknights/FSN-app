@@ -26,14 +26,14 @@ const Alert = props => {
               </View>
             </View>
             <View style={styles.modalHeaderWrapper}>
-              <Text style={[styles.modalHeader, helpers.montserratText]}>Success!</Text>
+              <Text style={[styles.modalHeader, helpers.montserratText]}>{props.header}</Text>
             </View>
           </View>
       </View>
       <View style={styles.modalBottom}>
         <View style={styles.modalMessageWrapper}>
-          <Text style={[styles.modalMessage, helpers.montserratText]}>Thank you for submiting your talk!</Text>
-          <Text style={[styles.modalMessage, helpers.montserratText]}>The FSN team will evaluate your proposal and get back to you.</Text>
+          <Text style={[styles.modalMessage, helpers.montserratText]}>{props.messageLine1}</Text>
+          <Text style={[styles.modalMessage, helpers.montserratText]}>{props.messageLine2}</Text>
         </View>
       </View>
     </Modal>
