@@ -15,11 +15,12 @@ class Events extends Component {
     return (
       <View>
         <SectionHeader header={`Talks ${header}`}/>
-        <View style={{ paddingTop: 10 }}>
+        <View>
         {rowData.talks.map((talk, idx) => {
           const index = talk.video.indexOf('v=') + 2;
           const videoId = talk.video.substring(index);
           const thumbnailUrl = `http://img.youtube.com/vi/${videoId}/0.jpg`;
+          const length = rowData.talks.length - 1;
           return (
             <Talk
               key={idx}
@@ -27,6 +28,8 @@ class Events extends Component {
               speaker={talk.author}
               videoUrl={talk.video}
               thumbnailUrl={thumbnailUrl}
+              index={idx}
+              length={length}
             />
           );
         })}

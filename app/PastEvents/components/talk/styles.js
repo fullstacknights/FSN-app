@@ -5,8 +5,11 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     padding: 10,
-    paddingTop: 0,
-    position: 'relative'
+    position: 'relative',
+  },
+  borderBottom: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#979797'
   },
   infoWrap: {
     flex: 1,
