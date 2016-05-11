@@ -6,7 +6,6 @@ import helpers from '../../../utils/styleHelpers';
 import styles from './styles';
 
 const Alert = props => {
-  console.log(props);
   return (
     <Modal style={[styles.modalContainer, styles.modalSuccess]} isOpen={props.display} onClosed={props.actions.handleClearAlert}>
       <View style={styles.modalTop}>
