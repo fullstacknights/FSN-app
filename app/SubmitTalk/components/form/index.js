@@ -15,6 +15,7 @@ import Radio from 'react-native-simple-radio-button';
 import styles from './styles';
 import logo from '../../../assets/logo.png';
 import helpers from '../../../utils/styleHelpers';
+import Alert from '../../../Alert/components/alert/index';
 
 class Form extends Component {
   constructor(props) {
@@ -54,7 +55,14 @@ class Form extends Component {
       });
     };
   }
+
   render() {
+    if (this.props.alert.display) {
+      return (
+        <Alert {...this.props.alert} actions={this.props.alertActions} />
+      );
+    }
+
     const props = this.props;
     const radio_props = [
       {label: 'Developer', value: 'developer' },
