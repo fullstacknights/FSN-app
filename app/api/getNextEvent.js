@@ -28,8 +28,9 @@ export default (dispatch, action) => {
                 __type: 'Pointer',
                 className: 'Event',
                 objectId: event.objectId
-              }
-            }
+              },
+            },
+            include: 'author'
           }
         })
         .then(resp => {
