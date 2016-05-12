@@ -72,6 +72,7 @@ export default StyleSheet.create({
     textAlign: 'center'
   },
   error: {
-    color: 'tomato'
+    color: 'tomato',
+    fontWeight: 'bold'
   }
-})
+});

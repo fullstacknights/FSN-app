@@ -75,7 +75,7 @@ class Form extends Component {
   handleSubmit = () => {
     this.props.validate();
     if (this.props.isValid) {
-      this.props.actions.handleSubmit(this.props.talk)
+      this.props.actions.handleSubmit(this.props.talk);
     }
   };
   renderForm(props, scrollViewContent) {
@@ -98,7 +98,7 @@ class Form extends Component {
             style={styles.logo}
             source={logo}/>
         </View>
-        <Text style={[styles.whiteText, styles.centerText, styles.spaceBottom]}>
+        <Text style={[styles.whiteText, styles.centerText, styles.spaceBottom, helpers.montserratText]}>
           All talks must be submitted here to be considered for review for Fullstack Nights. Once the talk is submitted the FSN team will review the topic, content, and visuals to see if its up to what the team considers to be FSN quality.
         </Text>
         <Text style={[styles.whiteText, styles.boldText]}>
@@ -117,7 +117,7 @@ class Form extends Component {
         {this.props.hasError('name') ?
           <View>
             {this.props.getErrors('name').map((err, idx) => {
-              return <Text key={idx} ext style={styles.error}>{err}</Text>
+              return <Text key={idx} style={[styles.error, helpers.montserratText]}>{err}</Text>
             })}
           </View> :
           null
@@ -140,7 +140,7 @@ class Form extends Component {
         {this.props.hasError('email') ?
           <View>
             {this.props.getErrors('email').map((err, idx) => {
-              return <Text key={idx} xt style={styles.error}>{err}</Text>
+              return <Text key={idx} style={[styles.error, helpers.montserratText]}>{err}</Text>
             })}
           </View> :
           null
@@ -161,7 +161,7 @@ class Form extends Component {
         {this.props.hasError('onlineProfile') ?
           <View>
             {this.props.getErrors('onlineProfile').map((err, idx) => {
-              return <Text key={idx} style={styles.error}>{err}</Text>
+              return <Text key={idx} style={[styles.error, helpers.montserratText]}>{err}</Text>
             })}
           </View> :
           null
@@ -177,7 +177,7 @@ class Form extends Component {
             buttonColor={'#50C900'}
             labelColor={'white'}
             onPress={props.actions.handleAddProfession}
-            style={styles.radioSpacing}
+            style={[styles.radioSpacing, helpers.montserratText]}
           />
         </View>
         <View style={styles.spaceBottom}/>
@@ -195,7 +195,7 @@ class Form extends Component {
         {this.props.hasError('topic') ?
           <View>
             {this.props.getErrors('topic').map((err, idx) => {
-              return <Text key={idx} xt style={styles.error}>{err}</Text>
+              return <Text key={idx} style={[styles.error, helpers.montserratText]}>{err}</Text>
             })}
           </View> :
           null
@@ -215,7 +215,7 @@ class Form extends Component {
         {this.props.hasError('importance') ?
           <View>
             {this.props.getErrors('importance').map((err, idx) => {
-              return <Text key={idx} style={styles.error}>{err}</Text>
+              return <Text key={idx} style={[styles.error, helpers.montserratText]}>{err}</Text>
             })}
           </View> :
           null
@@ -235,7 +235,7 @@ class Form extends Component {
         {this.props.hasError('questionsComments') ?
           <View>
             {this.props.getErrors('questionsComments').map((err, idx) => {
-              return <Text key={idx} style={styles.error}>{err}</Text>
+              return <Text key={idx} style={[styles.error, helpers.montserratText]}>{err}</Text>
             })}
           </View> :
           null
