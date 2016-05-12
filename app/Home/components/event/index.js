@@ -55,7 +55,7 @@ class Event extends Component {
                 <Image source={{ uri: talk.profileImg }} style={styles.speakerImg}/>
                 <View style={styles.talkInfo}>
                   <Text style={[styles.talkTitle, helpers.montserratText]}>{talk.title}</Text>
-                  <Text style={[styles.speakerName, helpers.montserratText]}>{talk.author}</Text>
+                  <Text style={[styles.speakerName, helpers.montserratText]}>{talk.author.fullname.toUpperCase()}</Text>
                 </View>
               </View>
             );
