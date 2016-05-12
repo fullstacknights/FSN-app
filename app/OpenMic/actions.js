@@ -31,6 +31,7 @@ export function handleSubmit(data) {
         };
 
         dispatch(handleDisplayAlert(alert));
+        dispatch(handleIsLoading(false));
         dispatch(handleClearState());
       });
   });
