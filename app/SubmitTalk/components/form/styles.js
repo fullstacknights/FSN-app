@@ -70,5 +70,8 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     textAlign: 'center'
+  },
+  error: {
+    color: 'tomato'
   }
 })

@@ -16,6 +16,7 @@ import styles from './styles';
 import logo from '../../../assets/logo.png';
 import helpers from '../../../utils/styleHelpers';
 import Loader from '../../../components/loader/index';
+import validator from '../../../utils/validator';
 
 class Form extends Component {
   constructor(props) {
@@ -30,6 +31,24 @@ class Form extends Component {
   componentWillMount() {
     DeviceEventEmitter.addListener(Platform.OS == 'IOS' ? 'keyboardWillShow' : 'keyboardDidShow', this.keyboardWillShow.bind(this))
     DeviceEventEmitter.addListener(Platform.OS == 'IOS' ? 'keyboardWillHide' : 'keyboardDidHide', this.keyboardWillHide.bind(this))
+  }
+  componentDidMount() {
+    this.props.setFields([{
+      name: 'name',
+      validations: ['required']
+    }, {
+      name: 'email',
+      validations: ['required', 'email']
+    }, {
+      name: 'onlineProfile',
+      validations: ['required']
+    }, {
+      name: 'topic',
+      validations: ['required']
+    }, {
+      name: 'importance',
+      validations: ['required']
+    }]);
   }
   keyboardWillShow (e) {
     const newSize = Dimensions.get('window').height - e.endCoordinates.height;
@@ -53,7 +72,12 @@ class Form extends Component {
       });
     };
   }
-
+  handleSubmit = () => {
+    this.props.validate();
+    if (this.props.isValid) {
+      this.props.actions.handleSubmit(this.props.talk)
+    }
+  };
   renderForm(props, scrollViewContent) {
     const buttonState = (props.talk.isLoading) ? styles.submitTalkDisabled : styles.submitTalk;
     const radio_props = [
@@ -90,6 +114,14 @@ class Form extends Component {
           onSubmitEditing={this.scrollTo('email')}
           onBlur={props.actions.handleAddName}
         />
+        {this.props.hasError('name') ?
+          <View>
+            {this.props.getErrors('name').map((err, idx) => {
+              return <Text key={idx} ext style={styles.error}>{err}</Text>
+            })}
+          </View> :
+          null
+        }
         <View style={styles.spaceBottom}/>
         <Text style={[styles.whiteText, styles.boldText]}>
           What is your email address?
@@ -102,22 +134,38 @@ class Form extends Component {
           keyboardType="email-address"
           autoCapitalize="none"
           autoCorrect={false}
-          onSubmitEditing={this.scrollTo('profile')}
+          onSubmitEditing={this.scrollTo('onlineProfile')}
           onBlur={props.actions.handleAddEmail}
         />
+        {this.props.hasError('email') ?
+          <View>
+            {this.props.getErrors('email').map((err, idx) => {
+              return <Text key={idx} xt style={styles.error}>{err}</Text>
+            })}
+          </View> :
+          null
+        }
         <View style={styles.spaceBottom}/>
         <Text style={[styles.whiteText, styles.boldText]}>
           Link to your online profile (e.g. @gcollazo)
         </Text>
         <TextInput
           defaultValue={props.talk.onlineProfile}
-          ref='profile'
-          onFocus={this.scrollTo('profile')}
+          ref='onlineProfile'
+          onFocus={this.scrollTo('onlineProfile')}
           style={styles.input}
           autoCapitalize="words"
           onSubmitEditing={this.scrollTo('topic')}
           onBlur={props.actions.handleAddOnlineProfile}
         />
+        {this.props.hasError('onlineProfile') ?
+          <View>
+            {this.props.getErrors('onlineProfile').map((err, idx) => {
+              return <Text key={idx} style={styles.error}>{err}</Text>
+            })}
+          </View> :
+          null
+        }
         <View style={styles.spaceBottom}/>
         <Text style={[styles.whiteText, styles.boldText]}>
           I am ...
@@ -144,31 +192,55 @@ class Form extends Component {
           style={[styles.input, styles.textarea]}
           onEndEditing={props.actions.handleAddTopic}
         />
+        {this.props.hasError('topic') ?
+          <View>
+            {this.props.getErrors('topic').map((err, idx) => {
+              return <Text key={idx} xt style={styles.error}>{err}</Text>
+            })}
+          </View> :
+          null
+        }
         <View style={styles.spaceBottom}/>
         <Text style={[styles.whiteText, styles.boldText]}>
           Why should this be presented in FSN?
         </Text>
         <TextInput
           defaultValue={props.talk.importance}
-          ref='presented'
-          onFocus={this.scrollTo('presented')}
+          ref='importance'
+          onFocus={this.scrollTo('importance')}
           multiline={true}
           style={[styles.input, styles.textarea]}
           onEndEditing={props.actions.handleAddImportance}
         />
+        {this.props.hasError('importance') ?
+          <View>
+            {this.props.getErrors('importance').map((err, idx) => {
+              return <Text key={idx} style={styles.error}>{err}</Text>
+            })}
+          </View> :
+          null
+        }
         <View style={styles.spaceBottom}/>
         <Text style={[styles.whiteText, styles.boldText]}>
           Your questions or comments
         </Text>
         <TextInput
           defaultValue={props.talk.questionsComments}
-          ref='questions'
-          onFocus={this.scrollTo('questions')}
+          ref='questionsComments'
+          onFocus={this.scrollTo('questionsComments')}
           multiline={true}
           style={[styles.input, styles.textarea]}
           onChangeText={props.actions.handleAddQuestionsComments}
         />
-        <TouchableOpacity onPress={props.actions.handleSubmit.bind(null, props.talk)}>
+        {this.props.hasError('questionsComments') ?
+          <View>
+            {this.props.getErrors('questionsComments').map((err, idx) => {
+              return <Text key={idx} style={styles.error}>{err}</Text>
+            })}
+          </View> :
+          null
+        }
+        <TouchableOpacity onPress={this.handleSubmit}>
           <View style={[styles.button, buttonState]}>
             <Text style={[styles.submitTalkText, helpers.montserratText]}>Submit</Text>
           </View>
@@ -192,4 +264,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default validator(Form);

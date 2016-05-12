@@ -19,6 +19,8 @@ class OpenMic extends Component {
     return (
       <Form
         openMic={this.props.openMic}
+        name={this.props.openMic.name}
+        topic={this.props.openMic.topic}
         actions={this.props.openMicActions}
         alert={this.props.alert}
         alertActions={this.props.alertActions} />

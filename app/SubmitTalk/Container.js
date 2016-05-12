@@ -19,6 +19,12 @@ class SubmitTalk extends Component {
     return (
       <Form
         talk={this.props.submitTalk}
+        name={this.props.submitTalk.name}
+        email={this.props.submitTalk.email}
+        onlineProfile={this.props.submitTalk.onlineProfile}
+        topic={this.props.submitTalk.topic}
+        importance={this.props.submitTalk.importance}
+        questionsComments={this.props.submitTalk.questionsComments}
         actions={this.props.talkActions}
         alert={this.props.alert}
         alertActions={this.props.alertActions} />
