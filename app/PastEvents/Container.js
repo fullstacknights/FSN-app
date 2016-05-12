@@ -9,9 +9,7 @@ import { Events } from './components';
 
 class PastEvents extends Component {
   componentWillMount() {
-    if (this.props.events.length === 0) {
-      this.props.actions.fetchPastEvents();
-    }
+    this.props.actions.fetchPastEvents();
   }
   render() {
     return (
