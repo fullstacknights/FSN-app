@@ -1,4 +1,4 @@
-import React, { Component, Image, Text, TouchableOpacity, View } from 'react-native';
+import React, { Component, Image, Linking, Text, TouchableOpacity, View } from 'react-native';
 import Modal from 'react-native-modalbox';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -10,6 +10,29 @@ class Profile extends Component {
   handleDismissProfile = () => {
     this.props.dismiss();
   };
+
+  handleIconPress(url) {
+    Linking.openURL(url);
+  }
+
+  renderIcon(url, icon) {
+    if (url) {
+      return (
+        <View style={styles.modalIcon}>
+          <TouchableOpacity onPress={this.handleIconPress.bind(null, url)}>
+            <View style={styles.modalIconCircle}>
+              <Ionicons
+                color="#50E3C2"
+                name={icon}
+                size={22}
+              />
+            </View>
+          </TouchableOpacity>
+        </View>
+      );
+    }
+  }
+
   render() {
     const backdropContent = (
       <TouchableOpacity onPress={this.handleDismissProfile}>
@@ -41,33 +64,9 @@ class Profile extends Component {
             </Text>
           </View>
           <View style={styles.modalIcons}>
-            <View style={styles.modalIcon}>
-              <View style={styles.modalIconCircle}>
-                <Ionicons
-                  color="#50E3C2"
-                  name="social-twitter"
-                  size={20}
-                />
-              </View>
-            </View>
-            <View style={styles.modalIcon}>
-              <View style={styles.modalIconCircle}>
-                <Ionicons
-                  color="#50E3C2"
-                  name="social-github"
-                  size={22}
-                />
-              </View>
-            </View>
-            <View style={styles.modalIcon}>
-              <View style={styles.modalIconCircle}>
-                <Ionicons
-                  color="#50E3C2"
-                  name="social-dribbble-outline"
-                  size={20}
-                />
-              </View>
-            </View>
+            {this.renderIcon(this.props.twitter, "social-twitter")}
+            {this.renderIcon(this.props.github, "social-github")}
+            {this.renderIcon(this.props.dribbble, "social-dribbble-outline")}
           </View>
         </View>
       </Modal>

@@ -29,9 +29,9 @@ export default Component =>
             fullname={this.state.speaker.fullname}
             profileImg={this.state.speaker.profileImg}
             about={this.state.speaker.about}
-            githubUrl={this.state.speaker.githubUrl}
-            dribbbleUrl={this.state.speaker.dribbbleUrl}
-            twitterUrl={this.state.speaker.twitterUrl}
+            github={this.state.speaker.github}
+            dribbble={this.state.speaker.dribbble}
+            twitter={this.state.speaker.twitter}
           />
         </View>
       );
