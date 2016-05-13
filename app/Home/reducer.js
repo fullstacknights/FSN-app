@@ -2,7 +2,8 @@ import * as actionTypes from './actionTypes';
 
 const initialState = {
   fetching: true,
-  event: {}
+  event: {},
+  displayProfile: false
 };
 
 export default function home(state = initialState, action) {
@@ -17,6 +18,10 @@ export default function home(state = initialState, action) {
         ...state,
         fetching: true
       };
+    case actionTypes.HOME_DISPLAY_PROFILE:
+      return ({...state, displayProfile: true});
+    case actionTypes.HOME_DISMISS_PROFILE:
+      return ({...state, displayProfile: false});
     default:
       return state;
   }

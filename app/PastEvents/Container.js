@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux';
 import { PureRender } from '../components';
 import * as actions from './actions';
 import { Events } from './components';
-import * as SpeakerProfileActions from '../SpeakerProfile/actions';
 
 class PastEvents extends Component {
   componentWillMount() {
@@ -19,7 +18,6 @@ class PastEvents extends Component {
         events={this.props.events}
         displayProfile={this.props.displayProfile}
         actions={this.props.actions}
-        speakerAction={this.props.speakerAction}
       />
     );
   }
@@ -30,7 +28,6 @@ export default connect(state => ({
     displayProfile: state.pastEvents.displayProfile
 }),
 (dispatch) => ({
-  actions: bindActionCreators(actions, dispatch),
-  speakerActions: bindActionCreators(SpeakerProfileActions, dispatch)
+  actions: bindActionCreators(actions, dispatch)
 })
 )(PureRender(PastEvents));
