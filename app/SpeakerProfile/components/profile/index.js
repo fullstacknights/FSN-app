@@ -60,7 +60,7 @@ class Profile extends Component {
         <View style={styles.modalBottom}>
           <View style={styles.modalBottomContent}>
             <Text style={[styles.modalBottomText, helpers.montserratText]}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem iste maxime maiores amet perferendis quibusdam nobis tempore non, architecto. Accusantium quaerat molestias ipsa sunt dignissimos corrupti tempore ea adipisci facilis.
+              {this.props.about}
             </Text>
           </View>
           <View style={styles.modalIcons}>
