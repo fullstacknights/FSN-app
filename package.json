@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "remotedev": "remotedev --hostname=localhost --port=8000"
+    "remotedev": "remotedev --hostname=localhost --port=8000",
+    "build:ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file='index.ios.js' --bundle-output='./ios/FSN/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'"
   },
   "dependencies": {
     "axios": "^0.11.0",
