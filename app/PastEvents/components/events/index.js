@@ -1,15 +1,28 @@
 import React, {
   Component,
+  Image,
   ListView,
-  View
+  View,
+  Text,
+  TouchableHighlight,
+  TouchableOpacity
 } from 'react-native';
 import Spinner from 'react-native-spinkit';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './styles';
 import { PureRender, SectionHeader } from '../../../components';
 import Talk from '../talk';
+import speakerModal from '../../../utils/speakerModal';
+
 
 class Events extends Component {
+  constructor(props) {
+    super(props);
+
+    this.renderEvents = this.renderEvents.bind(this);
+  }
+
   renderEvents(rowData) {
     const header = rowData.event.title.split(' ')[1];
     return (
@@ -30,6 +43,8 @@ class Events extends Component {
               thumbnailUrl={thumbnailUrl}
               index={idx}
               length={length}
+              actions={this.props.actions}
+              updateSpeaker={this.props.updateSpeaker}
             />
           );
         })}
@@ -39,6 +54,7 @@ class Events extends Component {
   }
 
   render() {
+
     if (this.props.events.length === 0) {
       return (
         <View style={styles.loader}>
@@ -64,4 +80,4 @@ class Events extends Component {
   }
 }
 
-export default PureRender(Events);
+export default PureRender(speakerModal(Events));

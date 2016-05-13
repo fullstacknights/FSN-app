@@ -4,6 +4,7 @@ import React, {
   Image,
   View,
   TouchableOpacity,
+  TouchableHighlight,
   Linking
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -46,7 +47,9 @@ class Talk extends Component {
         </TouchableOpacity>
         <View style={styles.infoWrap}>
           <Text style={[styles.title, helpers.monserratText]}>{this.props.title}</Text>
-          <Text style={[styles.speaker, helpers.monserratText]}>{this.props.speaker.fullname.toUpperCase()}</Text>
+          <TouchableHighlight onPress={() => this.props.updateSpeaker(this.props.speaker)}>
+            <Text style={[styles.speaker, helpers.monserratText]}>{this.props.speaker.fullname.toUpperCase()}</Text>
+          </TouchableHighlight>
         </View>
       </View>
     );
