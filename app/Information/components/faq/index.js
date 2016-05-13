@@ -21,7 +21,7 @@ class Faq extends Component {
   };
   _renderContent = (section) => {
     return (
-      <View>
+      <View style={styles.answerWrap}>
         <Text style={[styles.answer, helpers.montserratText]}>{section.answer}</Text>
       </View>
     );

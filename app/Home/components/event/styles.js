@@ -74,7 +74,9 @@ export default StyleSheet.create({
     paddingLeft: 15,
     paddingTop: 5,
     paddingBottom: 5,
-    backgroundColor: 'rgba(100, 100, 100, 0.2)',
+    backgroundColor: 'rgba(100, 100, 100, 0.2)'
+  },
+  talksTitleWrap: {
     fontSize: 16,
     color: 'rgba(30, 30, 30, 0.8)'
   },

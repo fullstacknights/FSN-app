@@ -22,7 +22,7 @@ class Information extends Component {
         tabBarActiveTextColor='#50E3C2'
         tabBarUnderlineColor='#50E3C2'
         tabBarInactiveTextColor='white'
-        style={helpers.montserratText}
+        tabBarTextStyle={helpers.montserratText}
       >
         <Info
           tabLabel='INFO'

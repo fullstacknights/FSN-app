@@ -48,7 +48,9 @@ class Event extends Component {
             <Text style={[styles.eventDate, helpers.montserratText]}>{moment(this.props.event.date.iso).format('DD/MMM/YYYY')}</Text>
           </View>
         </Image>
-        <Text style={[styles.talksTitle, helpers.montserratText]}>Talks</Text>
+        <View style={styles.talksTitle}>
+          <Text style={[styles.talksTitleText, helpers.montserratText]}>Talks</Text>
+        </View>
         <View style={styles.speakers}>
           {this.props.event.talks.map((talk, idx) => {
             return (

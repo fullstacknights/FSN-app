@@ -21,8 +21,10 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20
   },
+  answerWrap: {
+    padding: 20
+  },
   answer: {
-    padding: 20,
     color: '#9B9B9B',
     fontWeight: 'bold'
   }
