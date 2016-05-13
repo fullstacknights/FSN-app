@@ -3,6 +3,7 @@ import React, {
 } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
 import * as actions from './actions';
 import { PureRender } from '../components';
 import Event from './components/event';
@@ -18,7 +19,8 @@ class Home extends Component {
 
 export default connect(state => ({
   fetching: state.home.fetching,
-  event: state.home.event
+  event: state.home.event,
+  displayProfile: state.home.displayProfile
 }),
 (dispatch) => ({
   actions: bindActionCreators(actions, dispatch)

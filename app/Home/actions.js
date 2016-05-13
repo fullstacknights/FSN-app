@@ -20,3 +20,11 @@ export function fetchNextEvent() {
     getNextEvent(dispatch, setNextEvent);
   };
 }
+
+export function handleDisplayProfile() {
+  return ({type: actionTypes.HOME_DISPLAY_PROFILE});
+}
+
+export function handleDismissProfile() {
+  return ({type: actionTypes.HOME_DISMISS_PROFILE});
+}
