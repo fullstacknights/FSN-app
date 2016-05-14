@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "remotedev": "remotedev --hostname=localhost --port=8000",
-    "build:ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file='index.ios.js' --bundle-output='./ios/FSN/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'"
+    "build:ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file='index.ios.js' --bundle-output='./ios/FSN/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'",
+    "build:android": "cd android && ./gradlew assembleRelease && echo 'If the apk is correctly signed, the apk can be found at: \n\n\tandroid/app/build/outputs/apk/app-release.apk \n\nelse you can find it here: \n\n\tandroid/app/build/outputs/apk/app-release-unsigned.apk'"
   },
   "dependencies": {
     "axios": "^0.11.0",
