@@ -1,4 +1,4 @@
-package com.fsn;
+package io.blimp.fsn;
 
 import com.facebook.react.ReactActivity;
 import com.AirMaps.AirPackage;

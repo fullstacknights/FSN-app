@@ -81,7 +81,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.fsn"
+        applicationId "io.blimp.fsn"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
