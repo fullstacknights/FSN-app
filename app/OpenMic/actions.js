@@ -2,8 +2,8 @@ import * as actionTypes from './actionTypes';
 import submit from '../api/postData';
 import { handleDisplayAlert } from '../Alert/actions';
 
-export function handleAddName(event) {
-  return ({type: actionTypes.OPEN_MIC_NAME, name: event.nativeEvent.text});
+export function handleAddName(name) {
+  return ({type: actionTypes.OPEN_MIC_NAME, name });
 }
 
 export function handleAddTopic(topic) {
@@ -33,6 +33,9 @@ export function handleSubmit(data) {
         dispatch(handleDisplayAlert(alert));
         dispatch(handleIsLoading(false));
         dispatch(handleClearState());
+      })
+      .catch(() => {
+        dispatch(handleIsLoading(false));
       });
   });
 }

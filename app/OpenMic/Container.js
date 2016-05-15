@@ -23,7 +23,9 @@ class OpenMic extends Component {
         topic={this.props.openMic.topic}
         actions={this.props.openMicActions}
         alert={this.props.alert}
-        alertActions={this.props.alertActions} />
+        alertActions={this.props.alertActions}
+        isConnected={this.props.isConnected}
+      />
     );
   }
 }

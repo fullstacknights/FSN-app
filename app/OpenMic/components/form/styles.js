@@ -54,10 +54,16 @@ export default StyleSheet.create({
     backgroundColor: '#50E3C2'
   },
   openMicDisabled: {
-    backgroundColor: 'rgba(80,227,194,0.90)'
+    backgroundColor: 'rgba(80, 227, 194, 0.5)'
   },
   openMicText: {
     color: 'white',
+    fontWeight: 'bold',
+    fontSize: 20,
+    textAlign: 'center'
+  },
+  openMicTextDisabled: {
+    color: 'rgba(255, 255, 255, 0.5)',
     fontWeight: 'bold',
     fontSize: 20,
     textAlign: 'center'

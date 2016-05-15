@@ -21,13 +21,16 @@ class SubmitTalk extends Component {
         talk={this.props.submitTalk}
         name={this.props.submitTalk.name}
         email={this.props.submitTalk.email}
+        profession={this.props.submitTalk.profession}
         onlineProfile={this.props.submitTalk.onlineProfile}
         topic={this.props.submitTalk.topic}
         importance={this.props.submitTalk.importance}
         questionsComments={this.props.submitTalk.questionsComments}
         actions={this.props.talkActions}
         alert={this.props.alert}
-        alertActions={this.props.alertActions} />
+        alertActions={this.props.alertActions}
+        isConnected={this.props.isConnected}
+      />
     );
   }
 }

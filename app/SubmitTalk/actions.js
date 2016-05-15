@@ -2,28 +2,28 @@ import * as actionTypes from './actionTypes';
 import submit from '../api/postData';
 import { handleDisplayAlert } from '../Alert/actions';
 
-export function handleAddName(event) {
-  return ({type: actionTypes.TALK_NAME, name: event.nativeEvent.text});
+export function handleAddName(name) {
+  return ({type: actionTypes.TALK_NAME, name});
 }
 
-export function handleAddEmail(event) {
-  return ({type: actionTypes.TALK_EMAIL, email: event.nativeEvent.text});
+export function handleAddEmail(email) {
+  return ({type: actionTypes.TALK_EMAIL, email});
 }
 
-export function handleAddOnlineProfile(event) {
-  return ({type: actionTypes.TALK_ONLINE_PROFILE, onlineProfile: event.nativeEvent.text});
+export function handleAddOnlineProfile(onlineProfile) {
+  return ({type: actionTypes.TALK_ONLINE_PROFILE, onlineProfile});
 }
 
 export function handleAddProfession(profession) {
   return ({type: actionTypes.TALK_PROFESSION, profession});
 }
 
-export function handleAddTopic(event) {
-  return ({type: actionTypes.TALK_TOPIC, topic: event.nativeEvent.text});
+export function handleAddTopic(topic) {
+  return ({type: actionTypes.TALK_TOPIC, topic});
 }
 
-export function handleAddImportance(event) {
-  return ({type: actionTypes.TALK_IMPORTANCE, importance: event.nativeEvent.text});
+export function handleAddImportance(importance) {
+  return ({type: actionTypes.TALK_IMPORTANCE, importance});
 }
 
 export function handleAddQuestionsComments(questionsComments) {
@@ -53,6 +53,9 @@ export function handleSubmit(data) {
         dispatch(handleDisplayAlert(alert));
         dispatch(handleIsLoading(false));
         dispatch(handleClearSubmitTalk());
+      })
+      .catch(() => {
+        dispatch(handleIsLoading(false));
       });
   });
 }

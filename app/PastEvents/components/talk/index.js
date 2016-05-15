@@ -46,9 +46,9 @@ class Talk extends Component {
           </View>
         </TouchableOpacity>
         <View style={styles.infoWrap}>
-          <Text style={[styles.title, helpers.monserratText]}>{this.props.title}</Text>
+          <Text style={[styles.title, helpers.montserratText]}>{this.props.title}</Text>
           <TouchableOpacity onPress={() => this.props.updateSpeaker(this.props.speaker)}>
-            <Text style={[styles.speaker, helpers.monserratText]}>{this.props.speaker.fullname.toUpperCase()}</Text>
+            <Text style={[styles.speaker, helpers.montserratText]}>{this.props.speaker.fullname.toUpperCase()}</Text>
           </TouchableOpacity>
         </View>
       </View>

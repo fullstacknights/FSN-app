@@ -5,7 +5,8 @@ import React, {
   View,
   Navigator,
   BackAndroid,
-  Platform
+  Platform,
+  NetInfo
 } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -26,7 +27,10 @@ const styles = StyleSheet.create({
 class Router extends Component {
   constructor(props) {
     super(props);
-    this.state = { drawerOpen: false };
+    this.state = {
+      drawerOpen: false,
+      isConnected: false
+    };
   }
   componentWillMount() {
     this.props.staticDataActions.fetchJson();
@@ -37,9 +41,25 @@ class Router extends Component {
       }
       return false;
     });
+    NetInfo.isConnected.addEventListener(
+      'change',
+      this._handleConnectivityChange
+    );
+    NetInfo.isConnected.fetch().done(
+      (isConnected) => {
+        this.setState({ isConnected });
+      }
+    );
   }
   componentWillUnMount() {
     BackAndroid.removeEventListener('hardwareBackPress');
+    NetInfo.isConnected.removeEventListener(
+      'change',
+      this._handleConnectivityChange
+    );
+  }
+  _handleConnectivityChange = (isConnected) => {
+    this.setState({ isConnected });
   }
   toggleLeftDrawer = () => {
     if (this.state.drawerOpen) {
@@ -88,7 +108,7 @@ class Router extends Component {
           toggleLeftDrawer={this.toggleLeftDrawer}
         />
         <View style={styles.overlay}>
-          <Route navigator={navigator}/>
+          <Route navigator={navigator} isConnected={this.state.isConnected}/>
         </View>
       </Drawer>
     );

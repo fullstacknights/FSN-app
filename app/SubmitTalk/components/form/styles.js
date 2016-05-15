@@ -60,7 +60,7 @@ export default StyleSheet.create({
     backgroundColor: '#50E3C2'
   },
   submitTalkDisabled: {
-    backgroundColor: 'rgba(80,227,194,0.90)'
+    backgroundColor: 'rgba(80, 227, 194, 0.5)'
   },
   spaceBottom: {
     marginBottom: 20
@@ -71,8 +71,18 @@ export default StyleSheet.create({
     fontSize: 20,
     textAlign: 'center'
   },
+  submitTalkTextDisabled: {
+    color: 'rgba(255, 255, 255, 0.5)',
+    fontWeight: 'bold',
+    fontSize: 20,
+    textAlign: 'center'
+  },
   error: {
     color: 'tomato',
     fontWeight: 'bold'
+  },
+  radioLabel: {
+    fontSize: 16,
+    color: 'white'
   }
 });
