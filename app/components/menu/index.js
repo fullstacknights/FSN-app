@@ -23,7 +23,10 @@ class Menu extends Component {
   handlePress(route) {
     return () => {
       this.props.toggleLeftDrawer();
-      this.props.navigator.push({ name: route });
+      const routes = this.props.navigator.getCurrentRoutes();
+      if (routes[routes.length - 1].name !== route) {
+        this.props.navigator.push({ name: route });
+      }
     };
   }
   handleBuyTicketsPressed() {

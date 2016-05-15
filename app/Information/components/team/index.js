@@ -46,8 +46,10 @@ class Team extends Component {
                       source={{ uri: member.image }}
                     />
                   </View>
-                  <Text style={[styles.name, helpers.montserratText]}>{member.name}</Text>
-                  <Text style={[styles.name, helpers.montserratText]}>{member.twitter}</Text>
+                  <View style={{ flex: 1 }}>
+                    <Text style={[styles.name, helpers.montserratText]}>{member.name}</Text>
+                    <Text style={[styles.name, helpers.montserratText]}>{member.twitter}</Text>
+                  </View>
                 </View>
               </TouchableOpacity>
             );

@@ -1,10 +1,12 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const memberWidth = (Dimensions.get('window').width - 100) / 2;
 
 export default StyleSheet.create({
   container: {
     paddingTop: 30,
     paddingBottom: 30,
-    paddingLeft: 40,
+    paddingLeft: 20,
     paddingRight: 40
   },
   loader: {
@@ -15,21 +17,23 @@ export default StyleSheet.create({
   wrap: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
     flexWrap: 'wrap'
   },
   image: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: memberWidth - 40,
+    height: memberWidth - 40,
+    borderRadius: (memberWidth - 40) / 2,
     marginBottom: 20
   },
   member: {
+    width: memberWidth,
     alignItems: 'center',
-    marginBottom: 30
+    marginBottom: 30,
+    marginLeft: 20
   },
   name: {
     color: '#2C3E50',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center'
   }
 });

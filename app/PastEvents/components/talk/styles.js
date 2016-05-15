@@ -4,8 +4,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    padding: 10,
-    position: 'relative',
+    padding: 10
   },
   borderBottom: {
     borderBottomWidth: 1,
@@ -28,13 +27,9 @@ export default StyleSheet.create({
   video: {
     width: 100,
     height: 70,
-    backgroundColor: '#9B9B9B',
-    position: 'relative'
+    backgroundColor: '#9B9B9B'
   },
   playButton: {
-    position: 'absolute',
-    top: 15,
-    left: 25,
     borderRadius: 50,
     backgroundColor: 'rgba(255, 255, 255, 0.8)'
   },
@@ -42,9 +37,8 @@ export default StyleSheet.create({
     backgroundColor: 'transparent',
     width: 100,
     height: 70,
-    position: 'absolute',
-    top: 0,
-    left: 0
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   icon: {
     backgroundColor: 'transparent'

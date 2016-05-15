@@ -30,18 +30,20 @@ class Talk extends Component {
       <View style={talkStyle}>
         <TouchableOpacity onPress={this.handleVideoPress}>
           <View>
-            <View style={styles.video}/>
-            <Image
-              source={{ uri: this.props.thumbnailUrl }}
-              style={styles.thumbnail}
-            />
-            <View style={styles.playButton}>
-              <Icon
-                color='#4A4A4A'
-                name='play-arrow'
-                size={45}
-                style={styles.icon}
-              />
+            <View style={styles.video}>
+              <Image
+                source={{ uri: this.props.thumbnailUrl }}
+                style={styles.thumbnail}
+              >
+                <View style={styles.playButton}>
+                  <Icon
+                    color='#4A4A4A'
+                    name='play-arrow'
+                    size={45}
+                    style={styles.icon}
+                  />
+                </View>
+              </Image>
             </View>
           </View>
         </TouchableOpacity>
