@@ -54,15 +54,15 @@ class Event extends Component {
         <View style={styles.speakers}>
           {this.props.event.talks.map((talk, idx) => {
             return (
-              <View key={idx} style={styles.speaker}>
-                <Image source={{ uri: talk.author.profileImg }} style={styles.speakerImg}/>
-                <View style={styles.talkInfo}>
-                  <Text style={[styles.talkTitle, helpers.montserratText]}>{talk.title}</Text>
-                  <TouchableOpacity onPress={() => this.props.updateSpeaker(talk.author)}>
-                    <Text style={[styles.speakerName, helpers.montserratText]}>{talk.author.fullname.toUpperCase()}</Text>
-                  </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.props.updateSpeaker(talk.author)}>
+                <View key={idx} style={styles.speaker}>
+                  <Image source={{ uri: talk.author.profileImg }} style={styles.speakerImg}/>
+                  <View style={styles.talkInfo}>
+                    <Text style={[styles.talkTitle, helpers.montserratText]}>{talk.title}</Text>
+                      <Text style={[styles.speakerName, helpers.montserratText]}>{talk.author.fullname.toUpperCase()}</Text>
+                  </View>
                 </View>
-              </View>
+              </TouchableOpacity>
             );
           })}
         </View>
