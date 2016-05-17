@@ -86,6 +86,8 @@ class Router extends Component {
     const headerText = getRoute(route.name).headerText;
     return (
       <Drawer
+        tapToClose={true}
+        panOpenMask={30}
         captureGestures={false}
         content={
           <Menu
@@ -118,7 +120,9 @@ class Router extends Component {
     return {
       ...config,
       gestures: null,
-      defaultTransitionVelocity: 0
+      defaultTransitionVelocity: 0,
+      springFriction: 0,
+      springTension: 0,
     };
   };
   render() {
