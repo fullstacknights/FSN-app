@@ -36,54 +36,54 @@ class Menu extends Component {
   }
   render() {
     return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.banner}>
-          <Image
-            style={styles.backImage}
-            source={banner}
-          />
-          <Image
-            style={styles.logo}
-            source={logo}
-          />
-          <Text
-            style={[styles.bannerText, styles.headerText, helpers.montserratText]}
-          >
-            Full Stack Nights
-          </Text>
-          <Text style={[styles.bannerText, helpers.montserratText]}>Every two months</Text>
-        </View>
-        <View style={styles.navAndTickets}>
-          <View style={styles.nav}>
-            <TouchableOpacity onPress={this.handlePress('home')}>
-              <Text style={[styles.navLink, helpers.montserratText]}>Home</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.handlePress('schedule')}>
-              <Text style={[styles.navLink, helpers.montserratText]}>Schedule</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.handlePress('venue')}>
-              <Text style={[styles.navLink, helpers.montserratText]}>Venue</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.handlePress('past-events')}>
-              <Text style={[styles.navLink, helpers.montserratText]}>Past Events</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.handlePress('information')}>
-              <Text style={[styles.navLink, helpers.montserratText]}>Information</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.handlePress('submit-talk')}>
-              <Text style={[styles.navLink, helpers.montserratText]}>Submit Talk</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.handlePress('open-mic')}>
-              <Text style={[styles.navLink, helpers.montserratText]}>Request Open Mic</Text>
-            </TouchableOpacity>
+      <View style={styles.container}>
+        <ScrollView style={styles.scrollView}>
+          <View style={styles.banner}>
+            <Image
+              style={styles.backImage}
+              source={banner}
+            />
+            <Image
+              style={styles.logo}
+              source={logo}
+            />
+            <Text
+              style={[styles.bannerText, styles.headerText, helpers.montserratText]}
+            >
+              Full Stack Nights
+            </Text>
+            <Text style={[styles.bannerText, helpers.montserratText]}>Every two months</Text>
           </View>
-          <TouchableOpacity onPress={this.handleBuyTicketsPressed}>
-            <View style={styles.ticketsButton}>
-              <Text style={[styles.ticketsText, helpers.montserratText]}>Buy Tickets</Text>
+          <View style={styles.navAndTickets}>
+            <View style={styles.nav}>
+              <TouchableOpacity onPress={this.handlePress('home')}>
+                <Text style={[styles.navLink, helpers.montserratText]}>Home</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.handlePress('schedule')}>
+                <Text style={[styles.navLink, helpers.montserratText]}>Schedule</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.handlePress('venue')}>
+                <Text style={[styles.navLink, helpers.montserratText]}>Venue</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.handlePress('past-events')}>
+                <Text style={[styles.navLink, helpers.montserratText]}>Past Events</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.handlePress('information')}>
+                <Text style={[styles.navLink, helpers.montserratText]}>Information</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.handlePress('submit-talk')}>
+                <Text style={[styles.navLink, helpers.montserratText]}>Submit Talk</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.handlePress('open-mic')}>
+                <Text style={[styles.navLink, helpers.montserratText]}>Request Open Mic</Text>
+              </TouchableOpacity>
             </View>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
+          </View>
+        </ScrollView>
+        <TouchableOpacity onPress={this.handleBuyTicketsPressed} style={styles.ticketsButton}>
+          <Text style={[styles.ticketsText, helpers.montserratText]}>Buy Tickets</Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 }

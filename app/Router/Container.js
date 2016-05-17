@@ -86,6 +86,7 @@ class Router extends Component {
     const headerText = getRoute(route.name).headerText;
     return (
       <Drawer
+        captureGestures={false}
         content={
           <Menu
             event={this.props.currentEvent}

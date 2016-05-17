@@ -3,11 +3,14 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    position: 'relative',
     borderRightWidth: 1,
     borderRightColor: 'rgba(100, 100, 100, 0.4)'
   },
+  scrollView: {
+    marginBottom: 50
+  },
   banner: {
+    position: 'relative',
     alignItems: 'center',
     height: 200
   },
@@ -51,8 +54,11 @@ export default StyleSheet.create({
     fontWeight: '600'
   },
   ticketsButton: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 10,
     backgroundColor: '#F59523',
-    marginBottom: 10,
     marginLeft: 10,
     marginRight: 10,
     padding: 10,
