@@ -54,8 +54,8 @@ class Event extends Component {
         <View style={styles.speakers}>
           {this.props.event.talks.map((talk, idx) => {
             return (
-              <TouchableOpacity onPress={() => this.props.updateSpeaker(talk.author)}>
-                <View key={idx} style={styles.speaker}>
+              <TouchableOpacity key={idx} onPress={() => this.props.updateSpeaker(talk.author)}>
+                <View style={styles.speaker}>
                   <Image source={{ uri: talk.author.profileImg }} style={styles.speakerImg}/>
                   <View style={styles.talkInfo}>
                     <Text style={[styles.talkTitle, helpers.montserratText]}>{talk.title}</Text>

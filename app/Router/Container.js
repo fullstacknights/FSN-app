@@ -120,9 +120,7 @@ class Router extends Component {
     return {
       ...config,
       gestures: null,
-      defaultTransitionVelocity: 0,
-      springFriction: 0,
-      springTension: 0,
+      defaultTransitionVelocity: 0
     };
   };
   render() {

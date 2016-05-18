@@ -2,8 +2,8 @@ import { Dimensions, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   modal: {
-    height: 400,
-    width: (Dimensions.get('window').width - 20),
+    height: 340,
+    width: (Dimensions.get('window').width - 20)
   },
   modalClose: {
     alignSelf: 'flex-end'
