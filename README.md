@@ -4,7 +4,7 @@ Companion app for the FullStack Nights event.
 # Installation
 
 - [Google Play Store](https://play.google.com/store/apps/details?id=io.blimp.fsn)
-- App Store: Waiting for Apple's approval
+- [App Store](https://itunes.apple.com/us/app/fullstack-nights/id1114247628?mt=8)
 
 # License
 
